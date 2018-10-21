@@ -3,9 +3,7 @@ define([
 		'underscore',
 		'api/SplunkVisualizationBase',
 		'api/SplunkVisualizationUtils',
-		'performance_analysis',
-		'moment',
-		'tooltip',
+		'departures_board'
 	],
 	function (
 		$,
@@ -19,13 +17,13 @@ define([
 			// Save this.$el for convenience
 			this.$el = $(this.el);
 			// Add a css selector class
-			this.$el.addClass('performance_analysis');
+			this.$el.addClass('departures_board');
 		},
 
 		getInitialDataParams: function () {
 			return ({
 				outputMode: SplunkVisualizationBase.ROW_MAJOR_OUTPUT_MODE,
-				count: 10000
+				count: 1
 			});
 		},
 
@@ -35,32 +33,7 @@ define([
 			if (data.rows.length < 1) {
 				return false;
 			}
-			// We need a minimum of 3 fields returned
-			if (data.fields.length < 3) {
-				throw new SplunkVisualizationBase.VisualizationError("Missing values. Please include the following fields in your search query: name, value, status");
-			}
 
-			//Make sure we have the following: _time, name, value, status
-			var i = 0;
-			var hasName = false;
-			var hasTime = false;
-			var hasStatus = false;
-			var hasValue = false;
-			for (i = 0; i < data.fields.length; i++) {
-				if (data.fields[i].name == "_time")
-					hasTime = true;
-				if (data.fields[i].name == "status")
-					hasStatus = true;
-				if (data.fields[i].name == "value")
-					hasValue = true;
-				if (data.fields[i].name == "name")
-					hasName = true;
-			}
-
-			// Check for invalid data
-			if (!(hasTime && hasStatus && hasValue && hasName)) {
-				throw new SplunkVisualizationBase.VisualizationError('Missing values. Please include the following fields in your search query: name, value, status. E.g. ...| table _time, name, value, status, threshold_warning, threshold_critical');
-			}
 			return data;
 		},
 
@@ -102,40 +75,22 @@ define([
 			//this.$el.class="transaction_analysis";
 
 			//var trans_analysis = require("performance_analysis");
-			const performance_analysis = require('performance_analysis');
-			const Tooltip = require('tooltip');
-			var tip = Tooltip();
+			const departures_board = require('departures-board');
 
 			// Get Config parameters:
-			var granularity = parseFloat(config[this.getPropertyNamespaceInfo().propertyNamespace + 'granularity']) || 15;
-			var okColour = config[this.getPropertyNamespaceInfo().propertyNamespace + 'okColour'] || "#78B24A";
-			var warningColour = config[this.getPropertyNamespaceInfo().propertyNamespace + 'warningColour'] || "#E0C135";
-			var criticalColour = config[this.getPropertyNamespaceInfo().propertyNamespace + 'criticalColour'] || "#DD0000";
-			var noDataColour = config[this.getPropertyNamespaceInfo().propertyNamespace + 'noDataColour'] || "#5EBFC6";
-			var warningThreshold = parseFloat(config[this.getPropertyNamespaceInfo().propertyNamespace + 'warningThreshold']) || 8;
-			var criticalThreshold = parseFloat(config[this.getPropertyNamespaceInfo().propertyNamespace + 'criticalThreshold']) || 12;
-			var timeFormat = config[this.getPropertyNamespaceInfo().propertyNamespace + "timeFormat"] || "h:mm A";
-			var downTimeStart = parseFloat(config[this.getPropertyNamespaceInfo().propertyNamespace + "downTimeStart"]) || 0;
-			var downTimeEnd = parseFloat(config[this.getPropertyNamespaceInfo().propertyNamespace + "downTimeEnd"]) || 0;
-			var showLegend = config[this.getPropertyNamespaceInfo().propertyNamespace + "showLegend"] || true;
-			var showStatusAsText = config[this.getPropertyNamespaceInfo().propertyNamespace + "showStatusAsText"] || true;
+			var num_characters = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'num_characters']) || 5;
+			var is_animated = config[this.getPropertyNamespaceInfo().propertyNamespace + "animated"] || true;
+			var timing = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'timing']) || 500;
+			var auto_refresh = config[this.getPropertyNamespaceInfo().propertyNamespace + "auto_refresh"] || true;
+			var auto_refresh_period = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'auto_refresh_period']) || 500;
+			var dark_tiles = config[this.getPropertyNamespaceInfo().propertyNamespace + "dark_tiles"] || true;
+			var size = config[this.getPropertyNamespaceInfo().propertyNamespace + 'size'] || "XXL";
+			
 			// Now load the visualisation
-			var perfAnalysisVis = new performance_analysis.performance_analysis(granularity, warningThreshold, criticalThreshold, downTimeStart, downTimeEnd, timeFormat, showLegend, showStatusAsText);
-
-			perfAnalysisVis.set_colours(okColour, warningColour, criticalColour, noDataColour);
-			var vizObj = this
-				perfAnalysisVis.setData(data);
-			this.$el.html(perfAnalysisVis.getHTML());
-			var cells = document.getElementsByClassName("jds_ta_clickable");
-			var i = 0;
-
-			for (i = 0; i < cells.length; i++) {
-				cells[i].onclick = function () {
-					vizObj.drilldownToTimeRange(this.getAttribute("start_time"), this.getAttribute("end_time"), event);
-				}
-				cells[i].className.replace(/jds_ta_clickable/, '');
-			}
-			//$('[data-toggle="tooltip"]').tooltip();
+			var departures_board = new departures_board(num_characters, is_animated, timing, auto_refresh, auto_refresh_period, dark_tiles, size);
+			departures_board.setText(data)
+			this.$el.html(departures_board.getHTML());
+			departures_board.start();
 		}
 	});
 });
