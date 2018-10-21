@@ -85,7 +85,7 @@ define([
 			var auto_refresh_period = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'auto_refresh_period']) || 500;
 			var dark_tiles = config[this.getPropertyNamespaceInfo().propertyNamespace + "dark_tiles"] || true;
 			var size = config[this.getPropertyNamespaceInfo().propertyNamespace + 'size'] || "XXL";
-			var dark_tiles = config[this.getPropertyNamespaceInfo().propertyNamespace + "force_all_caps"] || true;
+			var force_all_caps = config[this.getPropertyNamespaceInfo().propertyNamespace + "force_all_caps"] || true;
 			
 			// Now load the visualisation
 			var oDepartures_board = new departures_board(num_characters, is_animated, timing, auto_refresh, auto_refresh_period, dark_tiles, size, force_all_caps);
