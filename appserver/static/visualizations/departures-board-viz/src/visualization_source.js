@@ -5,7 +5,7 @@ define([
 		'api/SplunkVisualizationUtils',
 		'departures-board',
 		'transform',
-		'flappy'
+		'flapper'
 	],
 	function (
 		$,
