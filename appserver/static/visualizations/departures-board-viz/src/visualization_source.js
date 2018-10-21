@@ -3,7 +3,7 @@ define([
 		'underscore',
 		'api/SplunkVisualizationBase',
 		'api/SplunkVisualizationUtils',
-		'departures_board'
+		'departures-board'
 	],
 	function (
 		$,
