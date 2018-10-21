@@ -77,7 +77,7 @@ define([
 			//this.$el.class="transaction_analysis";
 
 			//var trans_analysis = require("performance_analysis");
-			const departures_board = require('departures-board');
+			/*const departures_board = require('departures-board');
 
 			// Get Config parameters:
 			var num_characters = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'num_characters']) || 5;
@@ -94,6 +94,7 @@ define([
 			oDepartures_board.setText(data)
 			this.$el.html(oDepartures_board.getHTML());
 			oDepartures_board.start();
+			*/
 		}
 	});
 });
