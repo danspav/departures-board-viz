@@ -18,7 +18,7 @@
       <title>Server Infrastructure and Application Performance</title>
       <viz type="performance-analysis.performance_analysis">
         <search>
-          <query>| inputlookup sample-data.csv | rename time as _time| table _time, name, value, status, warning_threshold, critical_threshold</query>
+          <query>| makeresults | eval bob="Melbourne" | table bob</query>
           <earliest>-4h@m</earliest>
           <latest>now</latest>
           <sampleRatio>1</sampleRatio>
