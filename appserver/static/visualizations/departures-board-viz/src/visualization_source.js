@@ -87,10 +87,10 @@ define([
 			var size = config[this.getPropertyNamespaceInfo().propertyNamespace + 'size'] || "XXL";
 			
 			// Now load the visualisation
-			var departures_board = new departures_board(num_characters, is_animated, timing, auto_refresh, auto_refresh_period, dark_tiles, size);
-			departures_board.setText(data)
-			this.$el.html(departures_board.getHTML());
-			departures_board.start();
+			var oDepartures_board = new departures_board(num_characters, is_animated, timing, auto_refresh, auto_refresh_period, dark_tiles, size);
+			oDepartures_board.setText(data)
+			this.$el.html(oDepartures_board.getHTML());
+			oDepartures_board.start();
 		}
 	});
 });
