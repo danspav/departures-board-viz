@@ -3,9 +3,9 @@ define([
 		'underscore',
 		'api/SplunkVisualizationBase',
 		'api/SplunkVisualizationUtils',
-		'departures-board',
-		'transform',
-		'flapper'
+		'departures-board'
+		//'transform',
+		//'flapper'
 	],
 	function (
 		$,
@@ -74,10 +74,8 @@ define([
 			// Clear the div
 			this.$el.empty();
 
-			//this.$el.class="transaction_analysis";
-
-			//var trans_analysis = require("performance_analysis");
-			/*const departures_board = require('departures-board');
+			
+			var departures_board = require('departures-board');
 
 			// Get Config parameters:
 			var num_characters = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'num_characters']) || 5;
@@ -93,8 +91,8 @@ define([
 			var oDepartures_board = new departures_board(num_characters, is_animated, timing, auto_refresh, auto_refresh_period, dark_tiles, size, force_all_caps);
 			oDepartures_board.setText(data)
 			this.$el.html(oDepartures_board.getHTML());
-			oDepartures_board.start();
-			*/
+			//oDepartures_board.start();
+			
 		}
 	});
 });
