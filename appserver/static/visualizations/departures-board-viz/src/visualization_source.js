@@ -3,9 +3,9 @@ define([
 		'underscore',
 		'api/SplunkVisualizationBase',
 		'api/SplunkVisualizationUtils',
-		'departures-board'
+		'departures-board',
 		//'transform',
-		//'flapper'
+		'flapper'
 	],
 	function (
 		$,
@@ -91,7 +91,7 @@ define([
 			var oDepartures_board = new departures_board(num_characters, is_animated, timing, auto_refresh, auto_refresh_period, dark_tiles, size, force_all_caps);
 			oDepartures_board.setText(data)
 			this.$el.html(oDepartures_board.getHTML());
-			oDepartures_board.start(this.$el);
+			oDepartures_board.start();
 			
 		}
 	});
