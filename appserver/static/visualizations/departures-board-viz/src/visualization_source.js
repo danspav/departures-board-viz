@@ -76,7 +76,7 @@ define([
 
 			
 			var departures_board = require('departures-board');
-
+			var flapper = require('flapper');
 			// Get Config parameters:
 			var num_characters = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'num_characters']) || 5;
 			var is_animated = config[this.getPropertyNamespaceInfo().propertyNamespace + "animated"] || true;
