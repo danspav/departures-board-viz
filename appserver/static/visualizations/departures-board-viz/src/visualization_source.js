@@ -76,7 +76,7 @@ define([
 
 			
 			var departures_board = require('departures-board');
-			var flapper = require('flapper');
+			const flapper = require('flapper');
 			// Get Config parameters:
 			var num_characters = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'num_characters']) || 5;
 			var is_animated = config[this.getPropertyNamespaceInfo().propertyNamespace + "animated"] || true;
@@ -92,7 +92,7 @@ define([
 			oDepartures_board.setText(data)
 			this.$el.html(oDepartures_board.getHTML());
 			
-			this.$el.flapper({
+			this.$el.find( "input" )[0].flapper({
 				width: size,
 				chars_preset: 'alphanum',
 				transform: is_animated,
