@@ -92,8 +92,29 @@ define([
 			oDepartures_board.setText(data)
 			this.$el.html(oDepartures_board.getHTML());
 			
-			oDepartures_board.start();
+			this.$el.flapper({
+				width: size,
+				chars_preset: 'alphanum',
+				transform: is_animated,
+				timing: timing
+			});
+			var caption = departures_board.caption;
+			$el.val(caption).change();
+			setTimeout(function(){
+				$el.val(caption).change();
+				var toggle = false;
+				setInterval(function(){
+						if (toggle) {
+						$el.val('A' + caption).change();
+					} else {
+						$el.val('X' + caption).change();
+					}
+					   toggle = !toggle;
+				}, 5000);
+			}, 1000);
+		
 			
+			//----------------
 		}
 	});
 });
