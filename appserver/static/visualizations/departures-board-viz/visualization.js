@@ -136,7 +136,7 @@ define(["api/SplunkVisualizationBase","api/SplunkVisualizationUtils"], function(
 				var oDepartures_board = new departures_board(num_characters, is_animated, timing, auto_refresh, auto_refresh_period, dark_tiles, size, force_all_caps);
 				oDepartures_board.setText(data)
 				this.$el.html(oDepartures_board.getHTML());
-				oDepartures_board.start();
+				oDepartures_board.start(this.$el);
 				
 			}
 		});
@@ -11741,9 +11741,9 @@ define(["api/SplunkVisualizationBase","api/SplunkVisualizationUtils"], function(
 			return uuid;
 		}
 		
-		start(){
+		start($el){
 			const flap = __webpack_require__(7);
-			var $el = $('#' + this.id);
+			
 			$el.flapper({
 				width: this.size,
 				chars_preset: 'alphanum',
@@ -11757,7 +11757,6 @@ define(["api/SplunkVisualizationBase","api/SplunkVisualizationUtils"], function(
 				$el.val(caption).change();
 				var toggle = false;
 				setInterval(function(){
-						$el.flapper();
 						if (toggle) {
 						$el.val('A' + caption).change();
 					} else {
