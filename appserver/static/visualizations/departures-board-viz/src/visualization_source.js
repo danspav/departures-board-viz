@@ -92,7 +92,7 @@ define([
 			oDepartures_board.setText(data)
 			this.$el.html(oDepartures_board.getHTML());
 			
-			oDepartures_board.start(this.$el);
+			oDepartures_board.start();
 			
 		}
 	});
