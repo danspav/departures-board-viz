@@ -91,14 +91,16 @@ define([
 			var oDepartures_board = new departures_board(num_characters, is_animated, timing, auto_refresh, auto_refresh_period, dark_tiles, size, force_all_caps);
 			oDepartures_board.setText(data)
 			this.$el.html(oDepartures_board.getHTML());
+			var flap = this.$el.find( "input" )[0];
+			var caption = departures_board.caption;
 			$(document).ready(function() {
-			this.$el.find( "input" )[0].flapper({
+			flap.flapper({
 				width: size,
 				chars_preset: 'alphanum',
 				transform: is_animated,
 				timing: timing
 			});
-			var caption = departures_board.caption;
+			
 			$el.val(caption).change();
 			setTimeout(function(){
 				$el.val(caption).change();
@@ -112,7 +114,7 @@ define([
 					   toggle = !toggle;
 				}, 5000);
 			}, 1000);
-			});
+			}
 			
 			//----------------
 		}
