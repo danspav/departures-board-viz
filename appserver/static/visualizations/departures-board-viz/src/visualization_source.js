@@ -92,7 +92,7 @@ define([
 			oDepartures_board.setText(data)
 			this.$el.html(oDepartures_board.getHTML());
 			
-			this.$el.find( "input" )[0].flapper({
+			/*this.$el.find( "input" )[0].flapper({
 				width: size,
 				chars_preset: 'alphanum',
 				transform: is_animated,
@@ -112,7 +112,7 @@ define([
 					   toggle = !toggle;
 				}, 5000);
 			}, 1000);
-		
+		*/
 			
 			//----------------
 		}
