@@ -76,7 +76,7 @@ define([
 
 			
 			var departures_board = require('departures-board');
-			//const flapper = require('flapper');
+			
 			// Get Config parameters:
 			var num_characters = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'num_characters']) || 5;
 			var is_animated = config[this.getPropertyNamespaceInfo().propertyNamespace + "animated"] || true;
@@ -94,6 +94,7 @@ define([
 			var flap = this.$el.find( "input" )[0];
 			var caption = departures_board.caption;
 			$(document).ready(function() {
+			const flapper = require('flapper');
 			flap.flapper({
 				width: size,
 				chars_preset: 'alphanum',
