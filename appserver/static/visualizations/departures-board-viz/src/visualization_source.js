@@ -91,8 +91,8 @@ define([
 			var oDepartures_board = new departures_board(num_characters, is_animated, timing, auto_refresh, auto_refresh_period, dark_tiles, size, force_all_caps);
 			oDepartures_board.setText(data)
 			this.$el.html(oDepartures_board.getHTML());
-			
-			/*this.$el.find( "input" )[0].flapper({
+			$(document).ready(function() {
+			this.$el.find( "input" )[0].flapper({
 				width: size,
 				chars_preset: 'alphanum',
 				transform: is_animated,
@@ -112,7 +112,7 @@ define([
 					   toggle = !toggle;
 				}, 5000);
 			}, 1000);
-		*/
+			});
 			
 			//----------------
 		}
