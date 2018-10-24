@@ -95,7 +95,9 @@ define([
 			var caption = departures_board.caption;
 			$(document).ready(function() {
 		//	const flapper = require('flapper');
-			flap.flapper({
+			
+			setTimeout(function(){
+				flap.flapper({
 				width: size,
 				chars_preset: 'alphanum',
 				transform: is_animated,
@@ -103,8 +105,7 @@ define([
 			});
 			
 			$el.val(caption).change();
-			setTimeout(function(){
-				$el.val(caption).change();
+				
 				var toggle = false;
 				setInterval(function(){
 						if (toggle) {
