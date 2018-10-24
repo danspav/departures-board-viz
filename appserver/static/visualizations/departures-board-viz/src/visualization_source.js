@@ -93,11 +93,12 @@ define([
 			this.$el.html(oDepartures_board.getHTML());
 			var flap = this.$el.find( "input" )[0];
 			var caption = departures_board.caption;
+			var id=oDepartures_board.id;
 			$(document).ready(function() {
 		//	const flapper = require('flapper');
-			
+			var id=oDepartures_board.id;
 			setTimeout(function(){
-				flap.flapper({
+				$("#" + id).flapper({
 				width: size,
 				chars_preset: 'alphanum',
 				transform: is_animated,
