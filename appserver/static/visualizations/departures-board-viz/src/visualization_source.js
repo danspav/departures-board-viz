@@ -98,6 +98,7 @@ define([
 		//	const flapper = require('flapper');
 			var id=oDepartures_board.id;
 			setTimeout(function(){
+				require('flapper');
 				$("#" + id).flapper({
 				width: size,
 				chars_preset: 'alphanum',
