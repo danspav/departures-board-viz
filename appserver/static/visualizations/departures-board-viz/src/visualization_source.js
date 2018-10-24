@@ -94,7 +94,7 @@ define([
 			var flap = this.$el.find( "input" )[0];
 			var caption = departures_board.caption;
 			$(document).ready(function() {
-			const flapper = require('flapper');
+		//	const flapper = require('flapper');
 			flap.flapper({
 				width: size,
 				chars_preset: 'alphanum',
