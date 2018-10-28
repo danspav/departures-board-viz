@@ -101,6 +101,8 @@ define([
 		
 			var id=oDepartures_board.id;
 			setTimeout(function(){
+				require(['flapper'], function (flapper) {
+
 				$("#" + id).flapper({
 				width: size,
 				chars_preset: 'alphanum',
@@ -120,7 +122,7 @@ define([
 					   toggle = !toggle;
 				}, 5000);
 			}, 1000);
-			
+			};	
 		});
 			//----------------
 		}
