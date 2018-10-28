@@ -94,7 +94,7 @@ define([
 			oDepartures_board.setText(data)
 			this.$el.html(oDepartures_board.getHTML());
 			var flap = this.$el.find( "input" )[0];
-			var caption = departures_board.caption;
+			var caption = oDepartures_board.caption;
 			var id=oDepartures_board.id;
 			$(document).ready(function() {
 		
