@@ -77,7 +77,7 @@ define([
 			this.$el.empty();
 
 			
-			//var departures_board = require('departures-board');
+			var departures_board = require('departures-board');
 			
 			// Get Config parameters:
 			var num_characters = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'num_characters']) || 5;
