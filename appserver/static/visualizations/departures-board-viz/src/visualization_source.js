@@ -103,7 +103,7 @@ define([
 			setTimeout(function(){
 
 				//--
-				require(['flapper'], function (flapper) {
+				$.when( $.ready ).then(function() {
 				//--
 				
 				$("#" + id).flapper({
