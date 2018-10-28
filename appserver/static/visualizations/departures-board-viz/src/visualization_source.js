@@ -11,7 +11,9 @@ define([
 		$,
 		_,
 		SplunkVisualizationBase,
-		SplunkVisualizationUtils) {
+		SplunkVisualizationUtils,
+		departuresBoard,
+		flapper) {
 
 	return SplunkVisualizationBase.extend({
 
@@ -75,7 +77,7 @@ define([
 			this.$el.empty();
 
 			
-			var departures_board = require('departures-board');
+			//var departures_board = require('departures-board');
 			
 			// Get Config parameters:
 			var num_characters = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'num_characters']) || 5;
@@ -95,11 +97,9 @@ define([
 			var caption = departures_board.caption;
 			var id=oDepartures_board.id;
 			$(document).ready(function() {
-		//	const flapper = require('flapper');
+		
 			var id=oDepartures_board.id;
 			setTimeout(function(){
-				require('jquery');
-				require('flapper');
 				$("#" + id).flapper({
 				width: size,
 				chars_preset: 'alphanum',
