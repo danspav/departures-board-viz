@@ -97,6 +97,8 @@ define([
 			var flap = this.$el.find( "input" )[0];
 			var caption = oDepartures_board.caption;
 			var id=oDepartures_board.id;
+			
+			
 			$(document).ready(function() {
 		
 			var id=oDepartures_board.id;
@@ -113,14 +115,14 @@ define([
 					};
 				$("#" + id).flapper(this.opts);}
 			
-			$el.val(caption).change();
+			
 				
 				var toggle = false;
 				setInterval(function(){
 						if (toggle) {
-						$el.val('A' + caption).change();
+						$("#" + id).val('A' + caption).change();
 					} else {
-						$el.val('X' + caption).change();
+						$("#" + id).val('X' + caption).change();
 					}
 					   toggle = !toggle;
 				}, 5000);
