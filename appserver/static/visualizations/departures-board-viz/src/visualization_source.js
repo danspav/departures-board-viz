@@ -109,9 +109,7 @@ define([
 				this.opts = {
 						chars_preset: 'alphanum',
 						align: 'left',
-						width: 20,
-						on_anim_start: onAnimStart,
-						on_anim_end: onAnimEnd
+						width: 20
 					};
 				$("#" + id).flapper(this.opts);
 			
