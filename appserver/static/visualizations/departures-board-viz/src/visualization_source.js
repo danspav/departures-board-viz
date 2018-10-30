@@ -98,7 +98,7 @@ define([
 			var flap = this.$el.find( "input" )[0];
 			var caption = oDepartures_board.caption;
 			var id=oDepartures_board.id;
-			oDepartures_board.start();
+			//oDepartures_board.start();
 				    
 		            
 			//----------------
