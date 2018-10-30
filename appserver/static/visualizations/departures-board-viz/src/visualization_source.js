@@ -106,12 +106,14 @@ define([
 				$.when( $.ready ).then(function() {
 				//--
 				
-				$("#" + id).flapper({
-				width: size,
-				chars_preset: 'alphanum',
-				transform: is_animated,
-				timing: timing
-			});
+				this.opts = {
+						chars_preset: 'alphanum',
+						align: 'left',
+						width: 20,
+						on_anim_start: onAnimStart,
+						on_anim_end: onAnimEnd
+					};
+				$("#" + id).flapper(this.opts);
 			
 			$el.val(caption).change();
 				
