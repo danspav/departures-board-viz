@@ -105,13 +105,13 @@ define([
 				//--
 				$.when( $.ready ).then(function() {
 				//--
-				
+				$("#" + id).click = function(){
 				this.opts = {
 						chars_preset: 'alphanum',
 						align: 'left',
 						width: 20
 					};
-				$("#" + id).flapper(this.opts);
+				$("#" + id).flapper(this.opts);}
 			
 			$el.val(caption).change();
 				
