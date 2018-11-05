@@ -90,7 +90,7 @@ define([
 			var tile_size = config[this.getPropertyNamespaceInfo().propertyNamespace + 'size'] || "XXL";
 			var force_all_caps = config[this.getPropertyNamespaceInfo().propertyNamespace + "force_all_caps"] || true;
 			
-			
+			dark_tiles = (dark_tiles=="true")
 			if(parseInt(auto_refresh_period,10) <1){ auto_refresh_period = 1;}
 			
 			// Now load the visualisation
