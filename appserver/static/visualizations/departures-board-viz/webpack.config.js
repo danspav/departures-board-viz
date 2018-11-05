@@ -15,6 +15,7 @@ module.exports = {
     externals: [
         'api/SplunkVisualizationBase',
         'api/SplunkVisualizationUtils',
-		'flapper'
+        'splunkjs/mvc',
+        'splunkjs/mvc/utils'
     ]
 };
