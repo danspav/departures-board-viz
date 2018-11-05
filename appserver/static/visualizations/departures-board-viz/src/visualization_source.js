@@ -133,9 +133,10 @@ define([
 					$("#" + id).val('').change();	
 					setTimeout(function(){$("#" + id).val(oDepartures_board.getNextWord()).change();
 					//Set tokens for the current term + any ID value or "" if blank:
-					},1000);
 					tokens={"term": {"key": token_word, "value": oDepartures_board.caption},"id": {"key": token_id, "value":oDepartures_board.value}}
 					vizObj.setTokens(tokens);
+					},1000);
+					
 				}, auto_refresh_period * 1000);
 			}
 		}
