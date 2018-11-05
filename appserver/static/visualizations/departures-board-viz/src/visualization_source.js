@@ -1,5 +1,5 @@
 define([
-		'jquery',
+		//'jquery',
 		'underscore',
 		'api/SplunkVisualizationBase',
 		'api/SplunkVisualizationUtils',
@@ -8,7 +8,7 @@ define([
 		'flapper'
 	],
 	function (
-		$,
+	//	$,
 		_,
 		SplunkVisualizationBase,
 		SplunkVisualizationUtils,

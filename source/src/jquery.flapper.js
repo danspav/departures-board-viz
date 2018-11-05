@@ -298,5 +298,4 @@
         return this;
     }
     
-})(window.jQuery);
-window.jQuery.flapper = Flapper;
+})(jQuery);
