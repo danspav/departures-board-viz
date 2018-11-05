@@ -119,11 +119,13 @@ define([
 			oDepartures_board.setText(data)
 			var id=oDepartures_board.id;
 			this.$el.html(oDepartures_board.getHTML());
-			var caption = oDepartures_board.getNextWord();
+			var kvPair = oDepartures_board.getNextWord();
+			var caption = kvPair['word'];
+			var token_id_value = kvPair['id'];
 			window.jQuery("#" + id).flapper(oDepartures_board.getOpts());
 			$("#" + id).val(caption).change();
 			var vizObj = this;	
-			var tokens={"term": {"key": token_word, "value": oDepartures_board.caption},"id": {"key": token_id, "value":oDepartures_board.value}}
+			var tokens={"term": {"key": token_word, "value": oDepartures_board.caption},"id": {"key": token_id, "value":token_id_value}}
 			vizObj.setTokens(tokens);
 					
 					
@@ -132,11 +134,12 @@ define([
 				setInterval(function(){
 					$("#" + id).val('').change();	
 					setTimeout(function(){
-						var newCaption = oDepartures_board.getNextWord()
-						var newID = oDepartures_board.value;
+						var kvPair = oDepartures_board.getNextWord();
+						var newCaption = kvPair['word'];
+						var token_id_value = kvPair['id'];
 						$("#" + id).val(newCaption).change();
 						//Set tokens for the current term + any ID value or "" if blank:
-						tokens={"term": {"key": token_word, "value": newCaption},"id": {"key": token_id, "value":newID}}
+						tokens={"term": {"key": token_word, "value": newCaption},"id": {"key": token_id, "value":token_id_value}}
 						vizObj.setTokens(tokens);
 					},1000);
 					
