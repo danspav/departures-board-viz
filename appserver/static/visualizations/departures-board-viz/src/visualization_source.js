@@ -85,10 +85,13 @@ define([
 			var is_animated = config[this.getPropertyNamespaceInfo().propertyNamespace + "animated"] || true;
 			var max_timing = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'timing']) || 500;
 			var auto_refresh = config[this.getPropertyNamespaceInfo().propertyNamespace + "auto_refresh"] || true;
-			var auto_refresh_period = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'auto_refresh_period']) || 500;
+			var auto_refresh_period = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'auto_refresh_period']) || 5;
 			var dark_tiles = config[this.getPropertyNamespaceInfo().propertyNamespace + "dark_tiles"] || true;
 			var tile_size = config[this.getPropertyNamespaceInfo().propertyNamespace + 'size'] || "XXL";
 			var force_all_caps = config[this.getPropertyNamespaceInfo().propertyNamespace + "force_all_caps"] || true;
+			
+			
+			if(parseInt(auto_refresh_period,10) <1){ auto_refresh_period = 1;}
 			
 			// Now load the visualisation
 			var oDepartures_board = new departures_board(num_characters, is_animated, max_timing, auto_refresh, auto_refresh_period, dark_tiles, tile_size, force_all_caps);
