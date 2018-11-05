@@ -6,4 +6,8 @@ default.visualizations.custom.departures-board-viz.departures-board-viz.auto_ref
 default.visualizations.custom.departures-board-viz.departures-board-viz.auto_refresh_period = <number>
 default.visualizations.custom.departures-board-viz.departures-board-viz.dark_tiles = <bool>
 default.visualizations.custom.departures-board-viz.departures-board-viz.force_all_caps = <bool>
+default.visualizations.custom.departures-board-viz.departures-board-viz.panel_length = <string>
 default.visualizations.custom.departures-board-viz.departures-board-viz.size = <string>
+
+default.visualizations.custom.departures-board-viz.departures-board-viz.token_term = <string>
+default.visualizations.custom.departures-board-viz.departures-board-viz.token_id = <string>
