@@ -97,18 +97,9 @@ define([
 			var oDepartures_board = new departures_board(num_characters, is_animated, max_timing, auto_refresh, auto_refresh_period, dark_tiles, tile_size, force_all_caps);
 			oDepartures_board.setText(data)
 			this.$el.html(oDepartures_board.getHTML());
-			var flap = this.$el.find( "input" )[0];
 			var caption = oDepartures_board.caption;
+		
 			var id=oDepartures_board.id;
-			
-			
-			
-			//$(document).ready(function() {
-			//	oDepartures_board.start();
-			//});
-			
-			var id=oDepartures_board.id;
-				//require(['flapper'], function (flap) {
 					this.opts = {
 							chars_preset: 'alphanum',
 							align: 'left',
@@ -122,10 +113,6 @@ define([
 							setTimeout(function(){$("#" + id).val(caption).change();},1000);
 						}, auto_refresh_period * 1000);
 					}
-				//});
-			//});
-			//----------------
-			
 		}
 	});
 });
