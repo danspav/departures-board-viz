@@ -103,12 +103,9 @@ define([
 		
 			var id=oDepartures_board.id;
 			setTimeout(function(){
-				var $ = require("jquery");
-				var flap = require("flapper");
-				//--
-				//$.when( $.ready ).then(function() {
-				//--
-				//$("#" + id).click = function(){
+			//--
+			require(['jquery', 'flapper','splunkjs/mvc/simplexml/ready!'], function ($) {
+			//--	
 				this.opts = {
 						chars_preset: 'alphanum',
 						align: 'left',
@@ -116,10 +113,7 @@ define([
 					};
 				$("#" + id).flapper(this.opts);
 				
-				//}
-			
-			
-				
+								
 				var toggle = false;
 				setInterval(function(){
 						if (toggle) {
@@ -133,7 +127,7 @@ define([
 			
 			
 			//--
-			//});
+			});
 			//--
 			
 			
