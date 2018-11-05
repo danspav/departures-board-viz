@@ -133,9 +133,10 @@ define([
 					$("#" + id).val('').change();	
 					setTimeout(function(){
 						var newCaption = oDepartures_board.getNextWord()
+						var newID = oDepartures_board.value;
 						$("#" + id).val(newCaption).change();
 						//Set tokens for the current term + any ID value or "" if blank:
-						tokens={"term": {"key": token_word, "value": newCaption},"id": {"key": token_id, "value":oDepartures_board.value}}
+						tokens={"term": {"key": token_word, "value": newCaption},"id": {"key": token_id, "value":newID}}
 						vizObj.setTokens(tokens);
 					},1000);
 					
