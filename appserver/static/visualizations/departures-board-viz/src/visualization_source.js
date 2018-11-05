@@ -117,28 +117,27 @@ define([
 			// Now load the visualisation
 			var oDepartures_board = new departures_board(num_characters, is_animated, max_timing, auto_refresh, auto_refresh_period, dark_tiles, tile_size, force_all_caps, is_fixed_length);
 			oDepartures_board.setText(data)
+			var id=oDepartures_board.id;
 			this.$el.html(oDepartures_board.getHTML());
 			var caption = oDepartures_board.getNextWord();
-			var id=oDepartures_board.id;
-				window.jQuery("#" + id).flapper(oDepartures_board.getOpts());
-				$("#" + id).val(caption).change();
-				var vizObj = this;	
-				var tokens={"term": {"key": token_word, "value": oDepartures_board.caption},"id": {"key": token_id, "value":oDepartures_board.value}}
-				vizObj.setTokens(tokens);
+			window.jQuery("#" + id).flapper(oDepartures_board.getOpts());
+			$("#" + id).val(caption).change();
+			var vizObj = this;	
+			var tokens={"term": {"key": token_word, "value": oDepartures_board.caption},"id": {"key": token_id, "value":oDepartures_board.value}}
+			vizObj.setTokens(tokens);
 					
 					
 					
-				if(auto_refresh){
-					setInterval(function(){
-						$("#" + id).val('').change();	
-						tokens={"term": {"key": token_word, "value": oDepartures_board.caption},"id": {"key": token_id, "value":oDepartures_board.value}}
-						setTimeout(function(){$("#" + id).val(oDepartures_board.getNextWord()).change();
-						//Set tokens for the current term + any ID value or "" if blank:
-						
-						vizObj.setTokens(tokens);
-						},1000);
-					}, auto_refresh_period * 1000);
-				}
+			if(auto_refresh){
+				setInterval(function(){
+					$("#" + id).val('').change();	
+					setTimeout(function(){$("#" + id).val(oDepartures_board.getNextWord()).change();
+					//Set tokens for the current term + any ID value or "" if blank:
+					},1000);
+					tokens={"term": {"key": token_word, "value": oDepartures_board.caption},"id": {"key": token_id, "value":oDepartures_board.value}}
+					vizObj.setTokens(tokens);
+				}, auto_refresh_period * 1000);
+			}
 		}
 	});
 });
