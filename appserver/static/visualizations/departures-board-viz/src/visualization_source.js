@@ -104,7 +104,10 @@ define([
 			var id=oDepartures_board.id;
 			setTimeout(function(){
 			//--
-			require(['jquery', 'flapper'], function ($) {
+			window.$ = window.jQuery = require('jquery');
+			require(['jquery', 'flapper'], function ($, flap) {
+			window.$ = window.jQuery = require('jquery');
+			flap = require('flapper');
 			//--	
 				this.opts = {
 						chars_preset: 'alphanum',
