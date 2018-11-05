@@ -104,7 +104,7 @@ define([
 			var id=oDepartures_board.id;
 			setTimeout(function(){
 			//--
-			require(['jquery', 'flapper','splunkjs/mvc/simplexml/ready!'], function ($) {
+			require(['jquery', 'flapper'], function ($) {
 			//--	
 				this.opts = {
 						chars_preset: 'alphanum',
