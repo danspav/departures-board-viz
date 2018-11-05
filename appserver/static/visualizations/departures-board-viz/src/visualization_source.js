@@ -98,9 +98,11 @@ define([
 			var caption = oDepartures_board.caption;
 			var id=oDepartures_board.id;
 			
-			
+			oDepartures_board.start();
+			/*
 			$(document).ready(function() {
 		
+			
 			var id=oDepartures_board.id;
 				//require(['flapper'], function (flap) {
 					this.opts = {
@@ -118,6 +120,7 @@ define([
 				//});
 			});
 			//----------------
+			*/
 		}
 	});
 });
