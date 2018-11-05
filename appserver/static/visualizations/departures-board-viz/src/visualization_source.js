@@ -91,6 +91,7 @@ define([
 			var force_all_caps = config[this.getPropertyNamespaceInfo().propertyNamespace + "force_all_caps"] || true;
 			
 			dark_tiles = (dark_tiles=="true")
+			auto_refresh = (auto_refresh=="true")
 			if(parseInt(auto_refresh_period,10) <1){ auto_refresh_period = 1;}
 			
 			// Now load the visualisation
@@ -107,6 +108,7 @@ define([
 							timing: max_timing
 						};
 					window.jQuery("#" + id).flapper(this.opts);
+					$("#" + id).val(caption).change();
 					if(auto_refresh){
 						setInterval(function(){
 							$("#" + id).val('').change();						
