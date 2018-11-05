@@ -97,7 +97,7 @@ define([
 			oDepartures_board.setText(data)
 			this.$el.html(oDepartures_board.getHTML());
 			var caption = oDepartures_board.caption;
-			var 
+			
 			var id=oDepartures_board.id;
 			
 					window.jQuery("#" + id).flapper(oDepartures_board.getOpts());
