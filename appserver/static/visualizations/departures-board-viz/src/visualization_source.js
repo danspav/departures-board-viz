@@ -4,7 +4,7 @@ define([
 		'api/SplunkVisualizationBase',
 		'api/SplunkVisualizationUtils',
 		'departures-board',
-		//'transform',
+		'transform',
 		'flapper'
 	],
 	function (
@@ -13,6 +13,7 @@ define([
 		SplunkVisualizationBase,
 		SplunkVisualizationUtils,
 		departuresBoard,
+		transform,
 		flapper) {
 
 	return SplunkVisualizationBase.extend({
@@ -90,8 +91,9 @@ define([
 			var tile_size = config[this.getPropertyNamespaceInfo().propertyNamespace + 'size'] || "XXL";
 			var force_all_caps = config[this.getPropertyNamespaceInfo().propertyNamespace + "force_all_caps"] || true;
 			
-			dark_tiles = (dark_tiles=="true")
-			auto_refresh = (auto_refresh=="true")
+			dark_tiles = (dark_tiles=="true");
+			auto_refresh = (auto_refresh=="true");
+			is_animated = (is_animated=="true");
 			if(parseInt(auto_refresh_period,10) <1){ auto_refresh_period = 1;}
 			
 			// Now load the visualisation
