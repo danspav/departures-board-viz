@@ -87,7 +87,7 @@ define([
 			var auto_refresh = config[this.getPropertyNamespaceInfo().propertyNamespace + "auto_refresh"] || true;
 			var auto_refresh_period = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'auto_refresh_period']) || 500;
 			var dark_tiles = config[this.getPropertyNamespaceInfo().propertyNamespace + "dark_tiles"] || true;
-			var size = config[this.getPropertyNamespaceInfo().propertyNamespace + 'size'] || "XXL";
+			var tile_size = config[this.getPropertyNamespaceInfo().propertyNamespace + 'size'] || "XXL";
 			var force_all_caps = config[this.getPropertyNamespaceInfo().propertyNamespace + "force_all_caps"] || true;
 			
 			// Now load the visualisation
@@ -102,45 +102,23 @@ define([
 			$(document).ready(function() {
 		
 			var id=oDepartures_board.id;
-			setTimeout(function(){
-			//--
-			//window.$ = window.jQuery = require('jquery');
-			require(['flapper'], function (flap) {
-			//window.$ = window.jQuery = require('jquery');
-			//flap = require('flapper');
-			//--	
-				this.opts = {
-						chars_preset: 'alphanum',
-						align: 'left',
-						width: 20
-					};
-				window.jQuery("#" + id).flapper(this.opts);
-				
-								
-				var toggle = false;
-				setInterval(function(){
-						if (toggle) {
-						$("#" + id).val('A' + caption).change();
-					} else {
-						$("#" + id).val('X' + caption).change();
-					}
-					   toggle = !toggle;
-				}, 5000);
-			
-			
-			
-			//--
+				//require(['flapper'], function (flap) {
+					this.opts = {
+							chars_preset: 'alphanum',
+							align: 'left',
+							width: num_characters,
+							size: tile_size
+						};
+					window.jQuery("#" + id).flapper(this.opts);
+					
+									
+					var toggle = false;
+					setInterval(function(){
+						$("#" + id).val('').change();						
+						setTimeout(function(){$("#" + id).val(caption).change();},1000);
+					}, 5000);
+				//});
 			});
-			//--
-			
-			
-			
-			
-			
-			
-			}, 1000);
-				
-		});
 			//----------------
 		}
 	});
