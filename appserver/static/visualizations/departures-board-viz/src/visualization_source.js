@@ -105,7 +105,7 @@ define([
 			setTimeout(function(){
 
 				//--
-				$.when( $.ready ).then(function() {
+				//$.when( $.ready ).then(function() {
 				//--
 				$("#" + id).click = function(){
 				this.opts = {
@@ -130,7 +130,7 @@ define([
 			
 			
 			//--
-			});
+			//});
 			//--
 			
 			
