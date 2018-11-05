@@ -2,11 +2,13 @@
     
 	
 	
-	
+	<splunk-control-group label="Fixed or Longest Length">
 	<splunk-select name="{{VIZ_NAMESPACE}}.panel_length" value="true" section-label="Panel Length">
 		<option value="fixed">Fixed</option>
 		<option value="auto">Longest Term</option>
+		</splunk-select>
 	</splunk-select>
+	</splunk-control-group>
 	
 	<splunk-control-group label="Fixed Length">
         <splunk-text-input name="{{VIZ_NAMESPACE}}.num_characters" value="5"></splunk-text-input>
@@ -62,8 +64,8 @@
 	</splunk-control-group>
 </form>
 
-<form class="splunk-formatter-section" section-label="Tokens">
-	    <splunk-control-group label="Term Token" help="Tokens for current term, and optional ID field.">
+<form class="splunk-formatter-section" section-label="Tokens" help="Tokens for current term, and optional ID field.">
+	    <splunk-control-group label="Term Token">
         <splunk-text-input name="{{VIZ_NAMESPACE}}.token_term" value="dbv_term"></splunk-text-input>
 	</splunk-control-group>
 	<splunk-control-group label="ID Token">
