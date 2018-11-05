@@ -103,9 +103,9 @@ define([
 			
 			
 			
-			$(document).ready(function() {
+			//$(document).ready(function() {
 				oDepartures_board.start();
-			});
+			//});
 			/*
 			var id=oDepartures_board.id;
 				//require(['flapper'], function (flap) {
