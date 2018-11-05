@@ -105,7 +105,7 @@ define([
 			setTimeout(function(){
 			//--
 			//window.$ = window.jQuery = require('jquery');
-			require(['flapper'], function ($, flap) {
+			require(['flapper'], function (flap) {
 			//window.$ = window.jQuery = require('jquery');
 			//flap = require('flapper');
 			//--	
@@ -114,7 +114,7 @@ define([
 						align: 'left',
 						width: 20
 					};
-				$("#" + id).flapper(this.opts);
+				this.$el.flapper(this.opts);
 				
 								
 				var toggle = false;
