@@ -107,7 +107,8 @@ define([
 							chars_preset: 'alphanum',
 							align: 'left',
 							width: num_characters,
-							timing: max_timing
+							timing: max_timing,
+							transform: is_animated
 						};
 					window.jQuery("#" + id).flapper(this.opts);
 					$("#" + id).val(caption).change();
