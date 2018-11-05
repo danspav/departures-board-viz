@@ -120,7 +120,7 @@ define([
 						setInterval(function(){
 							$("#" + id).val('').change();						
 							setTimeout(function(){$("#" + id).val(caption).change();},1000);
-						}, auto_refresh_period);
+						}, auto_refresh_period * 1000);
 					}
 				//});
 			//});
