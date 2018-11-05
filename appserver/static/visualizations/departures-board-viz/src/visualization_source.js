@@ -83,7 +83,7 @@ define([
 			// Get Config parameters:
 			var num_characters = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'num_characters']) || 5;
 			var is_animated = config[this.getPropertyNamespaceInfo().propertyNamespace + "animated"] || true;
-			var timing = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'timing']) || 500;
+			var max_timing = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'timing']) || 500;
 			var auto_refresh = config[this.getPropertyNamespaceInfo().propertyNamespace + "auto_refresh"] || true;
 			var auto_refresh_period = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'auto_refresh_period']) || 500;
 			var dark_tiles = config[this.getPropertyNamespaceInfo().propertyNamespace + "dark_tiles"] || true;
@@ -107,7 +107,7 @@ define([
 							chars_preset: 'alphanum',
 							align: 'left',
 							width: num_characters,
-							size: tile_size
+							timing: max_timing
 						};
 					window.jQuery("#" + id).flapper(this.opts);
 					
