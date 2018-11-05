@@ -27,7 +27,7 @@ define([
 		getInitialDataParams: function () {
 			return ({
 				outputMode: SplunkVisualizationBase.ROW_MAJOR_OUTPUT_MODE,
-				count: 1
+				count: 500
 			});
 		},
 
