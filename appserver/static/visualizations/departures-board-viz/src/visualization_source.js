@@ -114,7 +114,7 @@ define([
 						align: 'left',
 						width: 20
 					};
-				this.$el.flapper(this.opts);
+				window.jQuery("#" + id).flapper(this.opts);
 				
 								
 				var toggle = false;
