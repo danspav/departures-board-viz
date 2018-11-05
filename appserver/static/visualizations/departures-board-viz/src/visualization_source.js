@@ -3,6 +3,7 @@ define([
 		'underscore',
 		'api/SplunkVisualizationBase',
 		'api/SplunkVisualizationUtils',
+		'splunkjs/mvc',
 		'departures-board',
 		'flapper'
 	],
@@ -11,8 +12,8 @@ define([
 		_,
 		SplunkVisualizationBase,
 		SplunkVisualizationUtils,
+		mvc,
 		departuresBoard,
-		
 		flapper) {
 
 	return SplunkVisualizationBase.extend({
