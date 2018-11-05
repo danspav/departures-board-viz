@@ -2,10 +2,10 @@
     
 	
 	
-	<splunk-control-group label="Fixed or Longest Length">
-	<splunk-select name="{{VIZ_NAMESPACE}}.panel_length" value="true" section-label="Panel Length">
-		<option value="fixed">Fixed</option>
-		<option value="auto">Longest Term</option>
+	<splunk-control-group label="Fixed size or Auto">
+	<splunk-select name="{{VIZ_NAMESPACE}}.is_fixed_length" value="true" section-label="Length">
+		<option value="true">Fixed</option>
+		<option value="false">Auto Length</option>
 		</splunk-select>
 	</splunk-select>
 	</splunk-control-group>
