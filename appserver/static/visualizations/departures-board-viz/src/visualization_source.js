@@ -103,7 +103,8 @@ define([
 		
 			var id=oDepartures_board.id;
 			setTimeout(function(){
-
+				var $ = require("jquery");
+				var flap = require("flapper");
 				//--
 				//$.when( $.ready ).then(function() {
 				//--
