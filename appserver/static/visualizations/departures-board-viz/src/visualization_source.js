@@ -110,8 +110,6 @@ define([
 							timing: max_timing
 						};
 					window.jQuery("#" + id).flapper(this.opts);
-					
-									
 					var toggle = false;
 					setInterval(function(){
 						$("#" + id).val('').change();						
