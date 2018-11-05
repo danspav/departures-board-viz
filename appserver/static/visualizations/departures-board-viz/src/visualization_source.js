@@ -104,9 +104,9 @@ define([
 			
 			
 			//$(document).ready(function() {
-				oDepartures_board.start();
+			//	oDepartures_board.start();
 			//});
-			/*
+			
 			var id=oDepartures_board.id;
 				//require(['flapper'], function (flap) {
 					this.opts = {
@@ -116,15 +116,16 @@ define([
 							timing: max_timing
 						};
 					window.jQuery("#" + id).flapper(this.opts);
-					var toggle = false;
-					setInterval(function(){
-						$("#" + id).val('').change();						
-						setTimeout(function(){$("#" + id).val(caption).change();},1000);
-					}, 5000);
+					if(auto_refresh){
+						setInterval(function(){
+							$("#" + id).val('').change();						
+							setTimeout(function(){$("#" + id).val(caption).change();},1000);
+						}, auto_refresh_period);
+					}
 				//});
-			});
+			//});
 			//----------------
-			*/
+			
 		}
 	});
 });
