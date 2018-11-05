@@ -91,7 +91,7 @@ define([
 			var force_all_caps = config[this.getPropertyNamespaceInfo().propertyNamespace + "force_all_caps"] || true;
 			
 			// Now load the visualisation
-			var oDepartures_board = new departures_board(num_characters, is_animated, timing, auto_refresh, auto_refresh_period, dark_tiles, size, force_all_caps);
+			var oDepartures_board = new departures_board(num_characters, is_animated, max_timing, auto_refresh, auto_refresh_period, dark_tiles, size, force_all_caps);
 			oDepartures_board.setText(data)
 			this.$el.html(oDepartures_board.getHTML());
 			var flap = this.$el.find( "input" )[0];
