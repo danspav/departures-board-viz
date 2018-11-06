@@ -89,6 +89,15 @@
   <code>| inputlookup departures-board-cities-lookup.csv</code>
 </p>
 
+
+<h1>Limits</h1>
+<p>The visualization is bound by the follwoing limits:</p>
+<ul>
+  <li>Total results: 100</li>
+  <li>Total characters: 50</li>
+  <li>Auto Refresh duration: 1s to 999s (anything outside these bounds will cause it to default to 5s)</li>
+</ul>
+
 <h1># Release Notes #</h1>
 <h2>v 1.0.0</h2>
 <ul>
