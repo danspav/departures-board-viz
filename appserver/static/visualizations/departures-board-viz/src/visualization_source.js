@@ -101,22 +101,13 @@ define([
 			var flapper = require('flapper');
 			
 			// Get Config parameters:
-			var num_characters = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'num_characters']) || 5;
-			var is_animated = config[this.getPropertyNamespaceInfo().propertyNamespace + "animated"] || true;
-			var max_timing = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'timing']) || 500;
-			var auto_refresh = config[this.getPropertyNamespaceInfo().propertyNamespace + "auto_refresh"] || true;
-			var auto_refresh_period = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'auto_refresh_period']) || 5;
-			var dark_tiles = config[this.getPropertyNamespaceInfo().propertyNamespace + "dark_tiles"] || true;
-			var tile_size = config[this.getPropertyNamespaceInfo().propertyNamespace + 'size'] || "XXL";
-			var force_all_caps = config[this.getPropertyNamespaceInfo().propertyNamespace + "force_all_caps"] || true;
-			var is_fixed_length = config[this.getPropertyNamespaceInfo().propertyNamespace + "is_fixed_length"] || false;
 			var token_word = config[this.getPropertyNamespaceInfo().propertyNamespace + "token_name"] || "dbv_term";
 			var token_id = config[this.getPropertyNamespaceInfo().propertyNamespace + "token_id"] || "dbv_id";
-			var alignment = config[this.getPropertyNamespaceInfo().propertyNamespace + "align"] || "left";
 			
 			
 			// Now load the visualisation
-			var oDepartures_board = new departures_board(num_characters, is_animated, max_timing, auto_refresh, auto_refresh_period, dark_tiles, tile_size, force_all_caps, is_fixed_length, alignment);
+			var oDepartures_board = new departures_board();
+			oDepartures_board.setConfig(config, this.getPropertyNamcespaceInfo());
 			oDepartures_board.setText(data)
 			var id=oDepartures_board.id;
 			this.$el.html(oDepartures_board.getHTML());
