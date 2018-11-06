@@ -119,7 +119,7 @@ define([
 			vizObj.setTokens(tokens);
 					
 					
-					
+/*					
 			if(oDepartures_board.auto_refresh){
 				setInterval(function(){
 					$("#" + id).val('').change();	
@@ -133,6 +133,21 @@ define([
 					
 				}, oDepartures_board.auto_refresh_period * 1000);
 			}
+*/
+			if(oDepartures_board.auto_refresh){
+				setInterval(function(){
+						if(oDepartures_board.words.length == 1) {
+							$("#" + id).val('').change();	
+						}
+						var newCaption = oDepartures_board.getNextWord();
+						$("#" + id).val(newCaption).change();
+						//Set tokens for the current term + any ID value or "" if blank:
+						tokens={"term": {"key": token_word, "value": newCaption},"id": {"key": token_id, "value":oDepartures_board.value}}
+						vizObj.setTokens(tokens);
+				}, oDepartures_board.auto_refresh_period * 1000);
+			}
+			
+			
 		}
 	});
 });
