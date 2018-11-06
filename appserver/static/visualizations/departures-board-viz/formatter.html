@@ -28,6 +28,23 @@
     	<splunk-text-input name="{{VIZ_NAMESPACE}}.auto_refresh_period" value="5"></splunk-text-input>
 	</splunk-control-group>
 	
+	 <splunk-control-group label="All Caps">
+		<splunk-select name="{{VIZ_NAMESPACE}}.force_all_caps" value="true" section-label="Force text to ALL CAPS">
+			<option value="true">True</option>
+			<option value="false">False</option>
+		</splunk-select>
+	</splunk-control-group>
+	
+	
+	<splunk-control-group label="Text Size">
+        <splunk-select name="{{VIZ_NAMESPACE}}.size" value="true" section-label="Letter Size">
+			<option value="S">Small</option>
+			<option value="M">Medium</option>
+			<option value="L">Large</option>
+			<option value="XL">X-Large</option>
+			<option value="XXL">XX-Large</option>
+		</splunk-select>
+	</splunk-control-group>
 	
 	
 	
@@ -56,23 +73,6 @@
 		</splunk-select>
 	</splunk-control-group>
 	
-	 <splunk-control-group label="All Caps">
-		<splunk-select name="{{VIZ_NAMESPACE}}.force_all_caps" value="true" section-label="Force text to ALL CAPS">
-			<option value="true">True</option>
-			<option value="false">False</option>
-		</splunk-select>
-	</splunk-control-group>
-	
-	
-	<splunk-control-group label="Text Size">
-        <splunk-select name="{{VIZ_NAMESPACE}}.size" value="true" section-label="Letter Size">
-			<option value="S">Small</option>
-			<option value="M">Medium</option>
-			<option value="L">Large</option>
-			<option value="XL">X-Large</option>
-			<option value="XXL">XX-Large</option>
-		</splunk-select>
-	</splunk-control-group>
 	
 	
 </form>
