@@ -28,7 +28,7 @@ define([
 		getInitialDataParams: function () {
 			return ({
 				outputMode: SplunkVisualizationBase.ROW_MAJOR_OUTPUT_MODE,
-				count: 500
+				count: 100
 			});
 		},
 
@@ -36,7 +36,8 @@ define([
 
 			// Check for an empty data object
 			if (data.rows.length < 1) {
-				return false;
+				data.rows[0] =[];
+				data.rows[0][0] = " ";
 			}
 
 			return data;
