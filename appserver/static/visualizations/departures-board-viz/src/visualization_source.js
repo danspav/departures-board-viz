@@ -107,7 +107,7 @@ define([
 			
 			// Now load the visualisation
 			var oDepartures_board = new departures_board();
-			oDepartures_board.setConfig(config, this.getPropertyNamcespaceInfo());
+			oDepartures_board.setConfig(config, this.getPropertyNamespaceInfo().propertyNamespace);
 			oDepartures_board.setText(data)
 			var id=oDepartures_board.id;
 			this.$el.html(oDepartures_board.getHTML());
