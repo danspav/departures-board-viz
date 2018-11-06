@@ -1,0 +1,90 @@
+<dashboard>
+  <label>Visualisation Examples</label>
+  <description>Showing Server and Application performance</description>
+  <row>
+    <panel>
+      <title>Server Infrastructure and Application Performance</title>
+      <viz type="departures-board-viz.departures-board-viz">
+        <search>
+          <query>| inputlookup departures-board-viz-countries-lookup.csv | eval rand=random()| sort rand | table city, id</query>
+          <earliest>-4h@m</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="departures-board-viz.departures-board-viz.animated">true</option>
+        <option name="departures-board-viz.departures-board-viz.auto_refresh">true</option>
+        <option name="departures-board-viz.departures-board-viz.auto_refresh_period">10</option>
+        <option name="departures-board-viz.departures-board-viz.dark_tiles">false</option>
+        <option name="departures-board-viz.departures-board-viz.force_all_caps">true</option>
+        <option name="departures-board-viz.departures-board-viz.is_fixed_length">false</option>
+        <option name="departures-board-viz.departures-board-viz.num_characters">5</option>
+        <option name="departures-board-viz.departures-board-viz.size">XXL</option>
+        <option name="departures-board-viz.departures-board-viz.token_id">dbv_id</option>
+        <option name="departures-board-viz.departures-board-viz.token_term">dbv_term</option>
+        <option name="drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="trellis.enabled">0</option>
+        <option name="trellis.scales.shared">1</option>
+        <option name="trellis.size">medium</option>
+      </viz>
+    </panel>
+    <panel>
+      <title>Details of $dbv_term$</title>
+      <table>
+        <search>
+          <query>| inputlookup departures-board-viz-countries-lookup.csv where id=$dbv_id$  |  rename city as City, country as Country, population as Population | table City, Country, Population | fieldformat Population=tostring(Population, "commas")</query>
+          <earliest>1541449920.000</earliest>
+          <latest>1541464324.000</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">1</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">row</option>
+        <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">false</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Location of $dbv_term$</title>
+      <map>
+        <search>
+          <query>| inputlookup departures-board-viz-countries-lookup.csv where id=$dbv_id$ | geostats latfield=lat longfield=lng sum(population) as Population translatetoxy=true</query>
+          <earliest>-4h@m</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="mapping.choroplethLayer.colorBins">5</option>
+        <option name="mapping.choroplethLayer.colorMode">auto</option>
+        <option name="mapping.choroplethLayer.maximumColor">0xaf575a</option>
+        <option name="mapping.choroplethLayer.minimumColor">0x62b3b2</option>
+        <option name="mapping.choroplethLayer.neutralPoint">0</option>
+        <option name="mapping.choroplethLayer.shapeOpacity">0.75</option>
+        <option name="mapping.choroplethLayer.showBorder">1</option>
+        <option name="mapping.data.maxClusters">100</option>
+        <option name="mapping.legend.placement">bottomright</option>
+        <option name="mapping.map.center">(0,0)</option>
+        <option name="mapping.map.panning">1</option>
+        <option name="mapping.map.scrollZoom">0</option>
+        <option name="mapping.map.zoom">2</option>
+        <option name="mapping.markerLayer.markerMaxSize">50</option>
+        <option name="mapping.markerLayer.markerMinSize">10</option>
+        <option name="mapping.markerLayer.markerOpacity">0.8</option>
+        <option name="mapping.showTiles">1</option>
+        <option name="mapping.tileLayer.maxZoom">7</option>
+        <option name="mapping.tileLayer.minZoom">0</option>
+        <option name="mapping.tileLayer.tileOpacity">1</option>
+        <option name="mapping.type">marker</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="trellis.enabled">0</option>
+        <option name="trellis.scales.shared">1</option>
+        <option name="trellis.size">medium</option>
+      </map>
+    </panel>
+  </row>
+</dashboard>

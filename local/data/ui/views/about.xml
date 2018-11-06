@@ -15,7 +15,7 @@
   </row>
   <row>
     <panel>
-      <title>Server Infrastructure and Application Performance</title>
+      <title>$dbv_term$ - $dbv_id$</title>
       <viz type="departures-board-viz.departures-board-viz">
         <search>
           <query>| makeresults count=10 | streamstats count as id| eval bob=case(id==1,"Melbourne",id==2,"Adelaide",id==3,"Sydney",id==4,"Brisbane",id==5,"Cairns",id==6,"Sunshine",id==7,"Perth",id==8,"Canberra",id==9,"Woden",id==10,"Blue Mountains") | table bob, id</query>
@@ -30,7 +30,7 @@
         <option name="departures-board-viz.departures-board-viz.force_all_caps">true</option>
         <option name="departures-board-viz.departures-board-viz.num_characters">9</option>
         <option name="departures-board-viz.departures-board-viz.size">XXL</option>
-        <option name="drilldown">none</option>
+        <option name="drilldown">all</option>
         <option name="refresh.display">progressbar</option>
         <option name="trellis.enabled">0</option>
         <option name="trellis.scales.shared">1</option>
