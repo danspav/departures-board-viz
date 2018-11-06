@@ -120,7 +120,7 @@ define([
 					
 					
 					
-			if(oDeparures_board.auto_refresh){
+			if(oDepartures_board.auto_refresh){
 				setInterval(function(){
 					$("#" + id).val('').change();	
 					setTimeout(function(){
