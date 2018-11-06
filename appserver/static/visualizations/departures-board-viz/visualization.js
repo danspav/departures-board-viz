@@ -146,21 +146,13 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 				var flapper = __webpack_require__(1);
 				
 				// Get Config parameters:
-				var num_characters = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'num_characters']) || 5;
-				var is_animated = config[this.getPropertyNamespaceInfo().propertyNamespace + "animated"] || true;
-				var max_timing = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'timing']) || 500;
-				var auto_refresh = config[this.getPropertyNamespaceInfo().propertyNamespace + "auto_refresh"] || true;
-				var auto_refresh_period = parseInt(config[this.getPropertyNamespaceInfo().propertyNamespace + 'auto_refresh_period']) || 5;
-				var dark_tiles = config[this.getPropertyNamespaceInfo().propertyNamespace + "dark_tiles"] || true;
-				var tile_size = config[this.getPropertyNamespaceInfo().propertyNamespace + 'size'] || "XXL";
-				var force_all_caps = config[this.getPropertyNamespaceInfo().propertyNamespace + "force_all_caps"] || true;
-				var is_fixed_length = config[this.getPropertyNamespaceInfo().propertyNamespace + "is_fixed_length"] || false;
 				var token_word = config[this.getPropertyNamespaceInfo().propertyNamespace + "token_name"] || "dbv_term";
 				var token_id = config[this.getPropertyNamespaceInfo().propertyNamespace + "token_id"] || "dbv_id";
 				
 				
 				// Now load the visualisation
-				var oDepartures_board = new departures_board(num_characters, is_animated, max_timing, auto_refresh, auto_refresh_period, dark_tiles, tile_size, force_all_caps, is_fixed_length);
+				var oDepartures_board = new departures_board();
+				oDepartures_board.setConfig(config, this.getPropertyNamespaceInfo().propertyNamespace);
 				oDepartures_board.setText(data)
 				var id=oDepartures_board.id;
 				this.$el.html(oDepartures_board.getHTML());
@@ -171,21 +163,20 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 				var tokens={"term": {"key": token_word, "value": oDepartures_board.caption},"id": {"key": token_id, "value":oDepartures_board.value}}
 				vizObj.setTokens(tokens);
 						
-						
-						
-				if(auto_refresh){
+				if(oDepartures_board.auto_refresh){
 					setInterval(function(){
-						$("#" + id).val('').change();	
-						setTimeout(function(){
+							if(oDepartures_board.words.length == 1) {
+								$("#" + id).val('').change();	
+							}
 							var newCaption = oDepartures_board.getNextWord();
 							$("#" + id).val(newCaption).change();
 							//Set tokens for the current term + any ID value or "" if blank:
 							tokens={"term": {"key": token_word, "value": newCaption},"id": {"key": token_id, "value":oDepartures_board.value}}
 							vizObj.setTokens(tokens);
-						},1000);
-						
-					}, auto_refresh_period * 1000);
+					}, oDepartures_board.auto_refresh_period * 1000);
 				}
+				
+				
 			}
 		});
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -2230,29 +2221,70 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 /***/ (function(module, exports, __webpack_require__) {
 
 	class departures_board{
-		constructor(num_characters, is_animated, timing, auto_refresh, auto_refresh_period, dark_tiles, size, force_all_caps, is_fixed_length){
-			this.num_characters = num_characters;
-			this.is_animated = is_animated;
-			this.auto_refresh = auto_refresh;
-			this.auto_refresh_period = auto_refresh_period;
-			this.timing = timing;
-			this.size = size;
-			this.dark_tiles = dark_tiles;
-			this.force_all_caps = force_all_caps;
-			this.id = this.createUUID();
-			this.caption="";
-			this.is_fixed_length = is_fixed_length;
+		constructor(){
 			this.words = [];
 			this.value = ""; // The value for token_id
-			this.dark_tiles = (this.dark_tiles=="true");
-			this.auto_refresh = (this.auto_refresh=="true");
-			this.is_animated = (this.is_animated=="true");
-			this.is_fixed_length = (this.is_fixed_length=="true");
-			this.timing = parseInt(this.timing,10);
-			if(this.timing<1) { this.timing = 1;}
-			var reValidateRefreshPeriod = new RegExp("\\d{1,3}(\\.\\d+)");
-			if( reValidateRefreshPeriod.test(this.auto_refresh_period)!=true || this.auto_refresh_period <1){ this.auto_refresh_period = 5;}
+			this.id = this.createUUID();
+			this.caption = ""
+			this.max_num_characters = 50;	// Defined here - limit the num_chars of the viz
+			//Defaults:
+			this.num_characters = 5;
+			this.auto_refresh = true;
+			this.auto_refresh_period = 5;
+			this.timing = 500;
+			this.size = "XXL";
+			this.dark_tiles = false;
+			this.force_all_caps = true;
+			this.token_word = "dbv_term";
+			this.token_id = "dbv_id";
+			this.is_fixed_length = false;
+			this.align = "left";
+			
 		}
+		
+		
+		
+		setConfig(config, namespace){
+			// Get Config parameters:
+				this.num_characters = parseInt(config[namespace + 'num_characters']) || 5;
+				if (this.num_characters > this.max_num_characters) { this.num_characters = this.max_num_characters;}
+				this.auto_refresh = config[namespace + "auto_refresh"] || true;
+				this.auto_refresh_period = parseInt(config[namespace + 'auto_refresh_period']) || 5;
+				this.timing = parseInt(config[namespace + 'timing']) || 500;
+				this.size = config[namespace + 'size'] || "XXL";;
+				this.theme = config[namespace + "theme"] || "light";
+				this.force_all_caps = config[namespace + "force_all_caps"] || true;
+				
+				this.token_word = config[namespace + "token_name"] || "dbv_term";
+				this.token_id = config[namespace + "token_id"] || "dbv_id";
+				this.caption="";
+				this.is_fixed_length = config[namespace + "is_fixed_length"] || false;
+				this.align = config[namespace + "align"] || "left";;
+				
+				this.force_all_caps = (this.force_all_caps=="true");
+				this.theme = (this.theme=="light") ? "light" : "dark";
+				this.auto_refresh = (this.auto_refresh=="true");
+				this.is_animated = (this.is_animated=="true");
+				this.is_fixed_length = (this.is_fixed_length=="true");
+				if(!this.is_fixed_length){
+					this.num_characters = 1;
+				}
+				this.timing = parseInt(this.timing,10);
+				if(this.timing<1) { this.timing = 1;}
+				
+				
+				
+				//Refresh period cannot be less than 1s
+				var reValidateRefreshPeriod = new RegExp("\\d{1,3}(\\.\\d+)");
+				if( reValidateRefreshPeriod.test(this.auto_refresh_period)!=true || this.auto_refresh_period <1){ this.auto_refresh_period = 5;}
+				
+				//Timing mus be at least 100ms
+				var reValidateAnimationPeriod = new RegExp("\\d{1,4}");
+				if( reValidateAnimationPeriod.test(this.timing)!=true || this.timing <100){ this.auto_refresh_period = 500;}
+		}
+		
+		
+		
 		
 		setText(data){
 				var SplunkVisUtils = __webpack_require__(4);
@@ -2269,7 +2301,14 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 						str = (this.force_all_caps) ? data.rows[i][0].toUpperCase() : data.rows[i][0];
 						val = (data.rows[i].length>1) ? data.rows[i][1] : ""
 						this.words.push ({word:str, value: val});
-						if(!this.is_fixed_length && str.length > this.num_characters){ this.num_characters = str.length;}
+						if(!this.is_fixed_length && str.length > this.num_characters){ 
+							//Limit the length to this.max_num_characters
+							if (str.length <= this.max_num_characters){ 
+								this.num_characters = str.length;
+							}else{
+								this.num_characters = this.max_num_characters;
+							}
+						}
 					}// loop
 					
 				} catch(err) {
@@ -2277,36 +2316,51 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 				}
 			}
 		
+		// Return the HTML for the visualization
 		getHTML(){
-			var styles = (this.dark_tiles) ? "header dark " + this.size : "header light " + this.size;
-			var html = "<input class=\"" + styles +"\" id=\"" + this.id +"\" />";
+			var cssTheme= (this.theme=="light") ? "light" : "dark";
+			var html = "<input class=\"header " + cssTheme + " " + this.size +"\" id=\"" + this.id + "\" />";
 			return html;
-			
 		}
 		
+		
+		// Get the next word. If we are centre aligning, pad with the right number of spaces.
 		getNextWord(){
 			try{
 				var vals = this.words.shift();
 				this.words.push(vals);
 				this.caption = vals["word"];
 				this.value = vals["value"];
+				if(this.align=="center"){
+					var paddingCount=Math.floor((this.num_characters - vals["word"].length)/2)
+					if(paddingCount>0) {
+						var padding = Array(paddingCount +1).join(" ")
+						vals["word"] = padding + vals["word"]
+					}
+				}
 				return vals['word'];
+				
 			} catch(err) {
 				console.log("Error getting current word" + err);
 				return "error!"
 			}
-			// Save as token: vals["id"];
 		}
 		
+		
+		// Get the OPTS for the visualization
 		getOpts(){
+			//Center align is just left with padding
+			var align = this.align;
+			if (align=="center") {align="left";}
 			return {chars_preset: 'alphanum',
-					align: 'left',
+					align: align,
 					width: this.num_characters,
 					timing: this.timing
 					//,transform: is_animated
 				};
 		}
 		
+		// Create a unique ID for the CSS selector
 		createUUID() {
 			var s = [];
 			var hexDigits = "0123456789abcdef";
@@ -2317,6 +2371,8 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 			return "db_" + uuid;
 		}
 		
+		
+		// Kick off the animation
 		start(){
 			//const flap = require('flapper');
 			var caption = this.caption;
@@ -2342,32 +2398,8 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 		
 		
 	}
-	/*
-	$(document).ready(function() {
-	                var $el = $('#' + this.id);
-	                $el.flapper({
-	                    width: this.size,
-	                    chars_preset: 'alphanum',
-						transform: this.animate,
-						timing: this.timing
-	                });
 
-	                setTimeout(function(){
-	                    $el.val('FLAPPER').change();
-	                    var toggle = false;
-	                    setInterval(function(){
-	                        if (toggle) {
-	                            $el.val(this.caption).change();
-	                        } else {
-	                            $el.val('X' + this.caption).change();
-	                        }
-	                        toggle = !toggle;
-	                    }, 5000);
-	                }, 1000);
-	            });
-				*/
-
-		module.exports =  departures_board;
+	module.exports =  departures_board;
 
 
 /***/ }),

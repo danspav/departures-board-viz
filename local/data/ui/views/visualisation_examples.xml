@@ -1,9 +1,9 @@
 <dashboard>
-  <label>Visualisation Examples</label>
+  <label>Example #2 - Tokens</label>
   <description>Showing Server and Application performance</description>
   <row>
     <panel>
-      <title>Server Infrastructure and Application Performance</title>
+      <title>Cities of the World</title>
       <viz type="departures-board-viz.departures-board-viz">
         <search>
           <query>| inputlookup departures-board-viz-countries-lookup.csv | eval rand=random()| sort rand | table city, id</query>
@@ -11,6 +11,7 @@
           <latest>now</latest>
           <sampleRatio>1</sampleRatio>
         </search>
+        <option name="departures-board-viz.departures-board-viz.align">left</option>
         <option name="departures-board-viz.departures-board-viz.animated">true</option>
         <option name="departures-board-viz.departures-board-viz.auto_refresh">true</option>
         <option name="departures-board-viz.departures-board-viz.auto_refresh_period">10</option>
@@ -18,7 +19,9 @@
         <option name="departures-board-viz.departures-board-viz.force_all_caps">true</option>
         <option name="departures-board-viz.departures-board-viz.is_fixed_length">false</option>
         <option name="departures-board-viz.departures-board-viz.num_characters">5</option>
-        <option name="departures-board-viz.departures-board-viz.size">XXL</option>
+        <option name="departures-board-viz.departures-board-viz.size">XL</option>
+        <option name="departures-board-viz.departures-board-viz.theme">dark</option>
+        <option name="departures-board-viz.departures-board-viz.timing">500</option>
         <option name="departures-board-viz.departures-board-viz.token_id">dbv_id</option>
         <option name="departures-board-viz.departures-board-viz.token_term">dbv_term</option>
         <option name="drilldown">none</option>
