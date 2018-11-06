@@ -28,7 +28,7 @@
 	</splunk-control-group>
 	
 	<!-- Animation Time -->
-	<splunk-radio-input label="Animation Duration">
+	<splunk-radio-input name="{{VIZ_NAMESPACE}}.timing" value="500" label="Animation Duration">
 			<option value="1000">Very Slow</option>
 			<option value="750">Slow</option>
 			<option value="500">Normal</option>
@@ -51,8 +51,8 @@
 		</splunk-radio-input>
 	</splunk-control-group>
 	
-	<!-- All Caps -->
-	 <splunk-control-group label="All Caps">
+	<!-- Change Case -->
+	 <splunk-control-group label="Change Case">
 		<splunk-radio-input name="{{VIZ_NAMESPACE}}.force_all_caps" value="true" section-label="Force text to ALL CAPS">
 			<option value="true">ALL CAPS</option>
 			<option value="false">No Change</option>
@@ -76,10 +76,10 @@
 <form class="splunk-formatter-section" section-label="Themes">
 	<!-- Themes -->
 	<splunk-control-group label="Theme">
-		<splunk-select name="{{VIZ_NAMESPACE}}.dark_tiles" value="true" section-label="Theme">
-			<option value="true">Dark Theme</option>
-			<option value="false">Light Theme</option>
-		</splunk-select>
+		<splunk-radio-input name="{{VIZ_NAMESPACE}}.dark_tiles" value="light" section-label="Theme">
+			<option value="dark">Dark Theme</option>
+			<option value="light">Light Theme</option>
+		</splunk-radio-input>
 	</splunk-control-group>
 </form>
 
