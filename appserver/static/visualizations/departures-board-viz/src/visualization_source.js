@@ -112,10 +112,11 @@ define([
 			var is_fixed_length = config[this.getPropertyNamespaceInfo().propertyNamespace + "is_fixed_length"] || false;
 			var token_word = config[this.getPropertyNamespaceInfo().propertyNamespace + "token_name"] || "dbv_term";
 			var token_id = config[this.getPropertyNamespaceInfo().propertyNamespace + "token_id"] || "dbv_id";
+			var alignment = config[this.getPropertyNamespaceInfo().propertyNamespace + "align"] || "left";
 			
 			
 			// Now load the visualisation
-			var oDepartures_board = new departures_board(num_characters, is_animated, max_timing, auto_refresh, auto_refresh_period, dark_tiles, tile_size, force_all_caps, is_fixed_length);
+			var oDepartures_board = new departures_board(num_characters, is_animated, max_timing, auto_refresh, auto_refresh_period, dark_tiles, tile_size, force_all_caps, is_fixed_length, alignment);
 			oDepartures_board.setText(data)
 			var id=oDepartures_board.id;
 			this.$el.html(oDepartures_board.getHTML());

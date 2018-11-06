@@ -4,24 +4,18 @@
 	
 	<splunk-control-group label="Fixed size or Auto">
 	<splunk-select name="{{VIZ_NAMESPACE}}.is_fixed_length" value="true" section-label="Length">
-		<option value="true">Fixed</option>
+		<option value="true">Fixed Size</option>
 		<option value="false">Auto Length</option>
 		</splunk-select>
 	</splunk-select>
 	</splunk-control-group>
 	
-	<splunk-control-group label="Fixed Length">
+	<splunk-control-group label="Fixed Size">
         <splunk-text-input name="{{VIZ_NAMESPACE}}.num_characters" value="5"></splunk-text-input>
     </splunk-control-group>
 	
 	
-	 <splunk-control-group label="Flip Animation">
-		<splunk-select name="{{VIZ_NAMESPACE}}.animated" value="true" section-label="Show Legend">
-			<option value="true">Special Animation</option>
-			<option value="false">Standard Animation</option>
-		</splunk-select>
-	</splunk-control-group>
-	 
+
 	 
 	 <splunk-control-group label="Refresh">
 		<splunk-select name="{{VIZ_NAMESPACE}}.auto_refresh" value="true" section-label="Refresh Settings">
@@ -34,6 +28,33 @@
     	<splunk-text-input name="{{VIZ_NAMESPACE}}.auto_refresh_period" value="5"></splunk-text-input>
 	</splunk-control-group>
 	
+	
+	
+	
+</form>
+
+<form class="splunk-formatter-section" section-label="Format">
+	<splunk-control-group label="Align">
+		<splunk-select name="{{VIZ_NAMESPACE}}.align" value="true" section-label="Align">
+			<option value="left">Left</option>
+			<option value="center">Center</option>
+			<option value="right">Right</option>
+		</splunk-select>
+	</splunk-control-group>
+	
+	
+	
+</form>
+
+
+
+<form class="splunk-formatter-section" section-label="Themes">
+	<splunk-control-group label="Theme">
+		<splunk-select name="{{VIZ_NAMESPACE}}.dark_tiles" value="true" section-label="Theme">
+			<option value="true">Dark Theme</option>
+			<option value="false">Light Theme</option>
+		</splunk-select>
+	</splunk-control-group>
 	
 	 <splunk-control-group label="All Caps">
 		<splunk-select name="{{VIZ_NAMESPACE}}.force_all_caps" value="true" section-label="Force text to ALL CAPS">
@@ -53,15 +74,7 @@
 		</splunk-select>
 	</splunk-control-group>
 	
-</form>
-
-<form class="splunk-formatter-section" section-label="Themes">
-	<splunk-control-group label="Theme">
-		<splunk-select name="{{VIZ_NAMESPACE}}.dark_tiles" value="true" section-label="Theme">
-			<option value="true">Dark Theme</option>
-			<option value="false">Light Theme</option>
-		</splunk-select>
-	</splunk-control-group>
+	
 </form>
 
 <form class="splunk-formatter-section" section-label="Tokens" help="Tokens for current term, and optional ID field.">
