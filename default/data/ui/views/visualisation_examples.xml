@@ -4,6 +4,10 @@
   <row>
     <panel>
       <html>
+        <style>
+          div.html h1, div.html p{color:#8ED2C9!important;}
+          div.html{ background-color: #00AAA0; color:red!important;}
+        </style>
         <h1>Using a token from one Departures Board to drive a second</h1>
         <p>The departures board visualization on the left generates a "<i>country</i>" token, which is used to display the right hand visualization.</p>
       </html>
@@ -90,7 +94,7 @@
         <option name="departures-board-viz.departures-board-viz.align">left</option>
         <option name="departures-board-viz.departures-board-viz.animated">true</option>
         <option name="departures-board-viz.departures-board-viz.auto_refresh">true</option>
-        <option name="departures-board-viz.departures-board-viz.auto_refresh_period">15</option>
+        <option name="departures-board-viz.departures-board-viz.auto_refresh_period">10</option>
         <option name="departures-board-viz.departures-board-viz.dark_tiles">false</option>
         <option name="departures-board-viz.departures-board-viz.force_all_caps">true</option>
         <option name="departures-board-viz.departures-board-viz.is_fixed_length">false</option>
