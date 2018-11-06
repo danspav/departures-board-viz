@@ -3,7 +3,7 @@
 <form class="splunk-formatter-section" section-label="Options">
    <!-- Fixed Size or Auto -->
 	<splunk-control-group label="Fixed size or Auto">
-		<splunk-radio-input name="{{VIZ_NAMESPACE}}.is_fixed_length" value="true" section-label="Length">
+		<splunk-radio-input name="{{VIZ_NAMESPACE}}.is_fixed_length" value="true">
 			<option value="true">Fixed Size</option>
 			<option value="false">Auto Length</option>
 		</splunk-radio-input>
@@ -16,7 +16,7 @@
 	
 	 <!-- Auto Refresh -->
 	 <splunk-control-group label="Refresh">
-		<splunk-radio-input name="{{VIZ_NAMESPACE}}.auto_refresh" value="true" section-label="Refresh Settings">
+		<splunk-radio-input name="{{VIZ_NAMESPACE}}.auto_refresh" value="true">
 			<option value="true">True</option>
 			<option value="false">False</option>
 		</splunk-radio-input>
@@ -28,13 +28,19 @@
 	</splunk-control-group>
 	
 	<!-- Animation Time -->
-	<splunk-select name="{{VIZ_NAMESPACE}}.timing" value="500" label="Animation Duration">
+	<splunk-control-group label="Animation Duration">
+		<splunk-select name="{{VIZ_NAMESPACE}}.timing" value="500">
 			<option value="1000">Very Slow</option>
 			<option value="750">Slow</option>
 			<option value="500">Normal</option>
 			<option value="250">Fast</option>
 			<option value="100">Very Fast</option>
-    </splunk-select>
+		</splunk-select>
+	</splunk-control-group>
+	
+	<splunk-control-group label="help">
+	<p>Note the maximum size is 50 characters.</p>
+	</splunk-control-group>
 </form>
 
 
@@ -44,7 +50,7 @@
 
 	<!-- Align -->
 	<splunk-control-group label="Align">
-		<splunk-radio-input name="{{VIZ_NAMESPACE}}.align" value="true" section-label="Align">
+		<splunk-radio-input name="{{VIZ_NAMESPACE}}.align" value="true">
 			<option value="left">Left</option>
 			<option value="center">Center</option>
 			<option value="right">Right</option>
@@ -53,7 +59,7 @@
 	
 	<!-- Change Case -->
 	 <splunk-control-group label="Change Case">
-		<splunk-radio-input name="{{VIZ_NAMESPACE}}.force_all_caps" value="true" section-label="Force text to ALL CAPS">
+		<splunk-radio-input name="{{VIZ_NAMESPACE}}.force_all_caps" value="true">
 			<option value="true">ALL CAPS</option>
 			<option value="false">No Change</option>
 		</splunk-radio-input>
@@ -61,7 +67,7 @@
 	
 	<!-- Text Size -->
 	<splunk-control-group label="Text Size">
-        <splunk-select name="{{VIZ_NAMESPACE}}.size" value="true" section-label="Letter Size">
+        <splunk-select name="{{VIZ_NAMESPACE}}.size" value="true">
 			<option value="S">Small</option>
 			<option value="M">Medium</option>
 			<option value="L">Large</option>
