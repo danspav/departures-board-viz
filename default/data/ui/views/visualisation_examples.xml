@@ -1,15 +1,8 @@
 <dashboard>
   <label>Example #2 - Tokens</label>
   <description>Showing Server and Application performance</description>
-  <row>
-    <panel>
-      <html>
-        <h1>Tokens updating other Departures Board Visualizations</h1>
-        <p>The City below is based on a search that also contains the country information. This is used to update the ID token, which then drives the country panel on the right.</p>
-      </html>
-    </panel>
-  </row>
-  <row>
+  <row><panel><html><h1>Using a token from one Departures Board to drive a second</h1><p>The departures board visualization on the left generates a "<i>country</i>" token, which is used to display the right hand visualization.</p></html></panel></row>
+   <row>
     <panel>
       <title>Cities of the World</title>
       <viz type="departures-board-viz.departures-board-viz">
@@ -20,6 +13,7 @@
           <sampleRatio>1</sampleRatio>
         </search>
         <option name="departures-board-viz.departures-board-viz.align">left</option>
+        <option name="departures-board-viz.departures-board-viz.animated">true</option>
         <option name="departures-board-viz.departures-board-viz.auto_refresh">true</option>
         <option name="departures-board-viz.departures-board-viz.auto_refresh_period">15</option>
         <option name="departures-board-viz.departures-board-viz.dark_tiles">false</option>
@@ -40,16 +34,17 @@
     </panel>
     <panel>
       <title>$city$ is the capital of $country$</title>
-      <viz type="departures-board-viz.departures-board-viz">
+       <viz type="departures-board-viz.departures-board-viz">
         <search>
-          <query>| makeresults | eval text=$country|s$| table text</query>
+          <query>| makeresults | eval text=$country|s$ | table country</query>
           <earliest>-4h@m</earliest>
           <latest>now</latest>
           <sampleRatio>1</sampleRatio>
         </search>
         <option name="departures-board-viz.departures-board-viz.align">left</option>
+        <option name="departures-board-viz.departures-board-viz.animated">true</option>
         <option name="departures-board-viz.departures-board-viz.auto_refresh">true</option>
-        <option name="departures-board-viz.departures-board-viz.auto_refresh_period">10</option>
+        <option name="departures-board-viz.departures-board-viz.auto_refresh_period">15</option>
         <option name="departures-board-viz.departures-board-viz.dark_tiles">false</option>
         <option name="departures-board-viz.departures-board-viz.force_all_caps">true</option>
         <option name="departures-board-viz.departures-board-viz.is_fixed_length">false</option>
@@ -57,8 +52,8 @@
         <option name="departures-board-viz.departures-board-viz.size">L</option>
         <option name="departures-board-viz.departures-board-viz.theme">dark</option>
         <option name="departures-board-viz.departures-board-viz.timing">500</option>
-        <option name="departures-board-viz.departures-board-viz.token_id">Not_used</option>
-        <option name="departures-board-viz.departures-board-viz.token_term">Not_used</option>
+        <option name="departures-board-viz.departures-board-viz.token_id">dbvasfdasd_id</option>
+        <option name="departures-board-viz.departures-board-viz.token_term">dbvasdfasdf_term</option>
         <option name="drilldown">none</option>
         <option name="refresh.display">progressbar</option>
         <option name="trellis.enabled">0</option>
@@ -67,14 +62,8 @@
       </viz>
     </panel>
   </row>
-  <row>
-    <panel>
-      <html>
-        <h1>Updating multiple panels</h1>
-        <p>The City token uses an ID for the ID token, which then drives both the info panel on the right, and the map below.</p>
-      </html>
-    </panel>
-  </row>
+  
+  <row><panel><html><h1>Using a token from one Departures Board to drive other searches</h1><p>The departures board visualization on the left generates an ID token, which is used to filter the query for the right hand table, and the map.</p></html></panel></row>
   <row>
     <panel>
       <title>Cities of the World</title>
@@ -88,7 +77,7 @@
         <option name="departures-board-viz.departures-board-viz.align">left</option>
         <option name="departures-board-viz.departures-board-viz.animated">true</option>
         <option name="departures-board-viz.departures-board-viz.auto_refresh">true</option>
-        <option name="departures-board-viz.departures-board-viz.auto_refresh_period">10</option>
+        <option name="departures-board-viz.departures-board-viz.auto_refresh_period">15</option>
         <option name="departures-board-viz.departures-board-viz.dark_tiles">false</option>
         <option name="departures-board-viz.departures-board-viz.force_all_caps">true</option>
         <option name="departures-board-viz.departures-board-viz.is_fixed_length">false</option>
@@ -109,10 +98,7 @@
       <title>Details of $dbv_term$</title>
       <table>
         <search>
-          <query>| inputlookup departures-board-viz-countries-lookup.csv where id=$dbv_id$ 
-| rename city as City, country as Country, population as Population 
-| table City, Country, Population 
-| fieldformat Population=tostring(Population, "commas")</query>
+          <query>| inputlookup departures-board-viz-countries-lookup.csv where id=$dbv_id$  |  rename city as City, country as Country, population as Population | table City, Country, Population | fieldformat Population=tostring(Population, "commas")</query>
           <earliest>1541449920.000</earliest>
           <latest>1541464324.000</latest>
           <sampleRatio>1</sampleRatio>
