@@ -73,7 +73,7 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 			getInitialDataParams: function () {
 				return ({
 					outputMode: SplunkVisualizationBase.ROW_MAJOR_OUTPUT_MODE,
-					count: 500
+					count: 100
 				});
 			},
 
@@ -81,7 +81,7 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 
 				// Check for an empty data object
 				if (data.rows.length < 1) {
-					return false;
+				return false;
 				}
 
 				return data;
@@ -136,7 +136,7 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 				// Assign datum to the data object returned from formatData
 				if (!data.meta.done)
 					return;
-				//	return;
+				
 
 				// Clear the div
 				this.$el.empty();
@@ -146,7 +146,7 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 				var flapper = __webpack_require__(1);
 				
 				// Get Config parameters:
-				var token_word = config[this.getPropertyNamespaceInfo().propertyNamespace + "token_name"] || "dbv_term";
+				var token_word = config[this.getPropertyNamespaceInfo().propertyNamespace + "token_term"] || "dbv_term";
 				var token_id = config[this.getPropertyNamespaceInfo().propertyNamespace + "token_id"] || "dbv_id";
 				
 				
@@ -2275,11 +2275,11 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 				
 				
 				//Refresh period cannot be less than 1s
-				var reValidateRefreshPeriod = new RegExp("\\d{1,3}(\\.\\d+)");
+				var reValidateRefreshPeriod = new RegExp("\\d{1,3}(\\.\\d+)?");
 				if( reValidateRefreshPeriod.test(this.auto_refresh_period)!=true || this.auto_refresh_period <1){ this.auto_refresh_period = 5;}
 				
 				//Timing mus be at least 100ms
-				var reValidateAnimationPeriod = new RegExp("\\d{1,4}");
+				var reValidateAnimationPeriod = new RegExp("\\d{3,4}");
 				if( reValidateAnimationPeriod.test(this.timing)!=true || this.timing <100){ this.auto_refresh_period = 500;}
 		}
 		
