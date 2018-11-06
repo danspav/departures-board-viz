@@ -36,8 +36,7 @@ define([
 
 			// Check for an empty data object
 			if (data.rows.length < 1) {
-				data.rows[0] =[];
-				data.rows[0][0] = " ";
+			return false;
 			}
 
 			return data;
@@ -92,7 +91,7 @@ define([
 			// Assign datum to the data object returned from formatData
 			if (!data.meta.done)
 				return;
-			//	return;
+			
 
 			// Clear the div
 			this.$el.empty();
