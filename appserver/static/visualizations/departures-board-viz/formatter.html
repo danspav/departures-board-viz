@@ -28,6 +28,21 @@
     	<splunk-text-input name="{{VIZ_NAMESPACE}}.auto_refresh_period" value="5"></splunk-text-input>
 	</splunk-control-group>
 	
+	
+	
+	
+	
+</form>
+
+<form class="splunk-formatter-section" section-label="Format">
+	<splunk-control-group label="Align">
+		<splunk-select name="{{VIZ_NAMESPACE}}.align" value="true" section-label="Align">
+			<option value="left">Left</option>
+			<option value="center">Center</option>
+			<option value="right">Right</option>
+		</splunk-select>
+	</splunk-control-group>
+	
 	 <splunk-control-group label="All Caps">
 		<splunk-select name="{{VIZ_NAMESPACE}}.force_all_caps" value="true" section-label="Force text to ALL CAPS">
 			<option value="true">True</option>
@@ -45,20 +60,6 @@
 			<option value="XXL">XX-Large</option>
 		</splunk-select>
 	</splunk-control-group>
-	
-	
-	
-</form>
-
-<form class="splunk-formatter-section" section-label="Format">
-	<splunk-control-group label="Align">
-		<splunk-select name="{{VIZ_NAMESPACE}}.align" value="true" section-label="Align">
-			<option value="left">Left</option>
-			<option value="center">Center</option>
-			<option value="right">Right</option>
-		</splunk-select>
-	</splunk-control-group>
-	
 	
 	
 </form>
