@@ -102,7 +102,7 @@ define([
 			var flapper = require('flapper');
 			
 			// Get Config parameters:
-			var token_word = config[this.getPropertyNamespaceInfo().propertyNamespace + "token_name"] || "dbv_term";
+			var token_word = config[this.getPropertyNamespaceInfo().propertyNamespace + "token_term"] || "dbv_term";
 			var token_id = config[this.getPropertyNamespaceInfo().propertyNamespace + "token_id"] || "dbv_id";
 			
 			
