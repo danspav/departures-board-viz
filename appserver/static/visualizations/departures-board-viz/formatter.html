@@ -14,6 +14,10 @@
         <splunk-text-input name="{{VIZ_NAMESPACE}}.num_characters" value="5"></splunk-text-input>
     </splunk-control-group>
 	
+	<splunk-control-group label=" ">
+	<p>Note the maximum size is 50 characters.</p>
+	</splunk-control-group>
+	
 	 <!-- Auto Refresh -->
 	 <splunk-control-group label="Refresh">
 		<splunk-radio-input name="{{VIZ_NAMESPACE}}.auto_refresh" value="true">
@@ -29,18 +33,16 @@
 	
 	<!-- Animation Time -->
 	<splunk-control-group label="Animation Duration">
-		<splunk-select name="{{VIZ_NAMESPACE}}.timing" value="500">
+		<splunk-radio-input name="{{VIZ_NAMESPACE}}.timing" value="500">
 			<option value="1000">Very Slow</option>
 			<option value="750">Slow</option>
 			<option value="500">Normal</option>
 			<option value="250">Fast</option>
 			<option value="100">Very Fast</option>
-		</splunk-select>
+		</splunk-radio-input>
 	</splunk-control-group>
 	
-	<splunk-control-group label="help">
-	<p>Note the maximum size is 50 characters.</p>
-	</splunk-control-group>
+
 </form>
 
 
