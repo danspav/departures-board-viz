@@ -131,7 +131,7 @@ define([
 						vizObj.setTokens(tokens);
 					},1000);
 					
-				}, auto_refresh_period * 1000);
+				}, oDepartures_board.auto_refresh_period * 1000);
 			}
 		}
 	});
