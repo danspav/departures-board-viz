@@ -118,6 +118,8 @@ define([
 			var tokens={"term": {"key": token_word, "value": oDepartures_board.caption},"id": {"key": token_id, "value":oDepartures_board.value}}
 			vizObj.setTokens(tokens);
 					
+			vizObj.go();
+			/*
 			if(oDepartures_board.auto_refresh){
 				setInterval(function(){
 						if(oDepartures_board.words.length == 1) {
@@ -130,7 +132,7 @@ define([
 						vizObj.setTokens(tokens);
 				}, oDepartures_board.auto_refresh_period * 1000);
 			}
-			
+			*/
 			
 		}
 	});
