@@ -118,7 +118,7 @@ define([
 			var tokens={"term": {"key": token_word, "value": oDepartures_board.caption},"id": {"key": token_id, "value":oDepartures_board.value}}
 			vizObj.setTokens(tokens);
 					
-			vizObj.go();
+			oDepartures_board.go();
 			/*
 			if(oDepartures_board.auto_refresh){
 				setInterval(function(){
