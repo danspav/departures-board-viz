@@ -111,9 +111,9 @@ define([
 			oDepartures_board.setText(data)
 			var id=oDepartures_board.id;
 			this.$el.html(oDepartures_board.getHTML());
-			var caption = oDepartures_board.getNextWord();
-			window.jQuery("#" + id).flapper(oDepartures_board.getOpts());
-			$("#" + id).val(caption).change();
+			//var caption = oDepartures_board.getNextWord();
+			//window.jQuery("#" + id).flapper(oDepartures_board.getOpts());
+			//$("#" + id).val(caption).change();
 			var vizObj = this;	
 			var tokens={"term": {"key": token_word, "value": oDepartures_board.caption},"id": {"key": token_id, "value":oDepartures_board.value}}
 			vizObj.setTokens(tokens);
