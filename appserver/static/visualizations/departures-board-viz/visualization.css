@@ -354,3 +354,7 @@ div.dbv_label{
 	font-weight: 300;
 	font-size: .8em;
 }
+div.dbv_container{
+	width:auto;
+	text-align:center;	
+}
