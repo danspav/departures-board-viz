@@ -51,8 +51,17 @@
 <form class="splunk-formatter-section" section-label="Format">
 
 	<!-- Align -->
-	<splunk-control-group label="Align">
-		<splunk-radio-input name="{{VIZ_NAMESPACE}}.align" value="true">
+	<splunk-control-group label="Align Visualization">
+		<splunk-radio-input name="{{VIZ_NAMESPACE}}.align" value="left">
+			<option value="left">Left</option>
+			<option value="center">Center</option>
+			<option value="right">Right</option>
+		</splunk-radio-input>
+	</splunk-control-group>
+	
+	<!-- Align -->
+	<splunk-control-group label="Align Text">
+		<splunk-radio-input name="{{VIZ_NAMESPACE}}.text_align" value="left">
 			<option value="left">Left</option>
 			<option value="center">Center</option>
 			<option value="right">Right</option>
