@@ -8,6 +8,7 @@ default.visualizations.custom.departures-board-viz.departures-board-viz.force_al
 default.visualizations.custom.departures-board-viz.departures-board-viz.is_fixed_length = <string>
 default.visualizations.custom.departures-board-viz.departures-board-viz.size = <string>
 default.visualizations.custom.departures-board-viz.departures-board-viz.align= <string>
+default.visualizations.custom.departures-board-viz.departures-board-viz.label= <string>
 
 default.visualizations.custom.departures-board-viz.departures-board-viz.token_term = <string>
 default.visualizations.custom.departures-board-viz.departures-board-viz.token_id = <string>

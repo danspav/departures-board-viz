@@ -345,3 +345,12 @@
 div.departures_board{
 	padding: 15px;
 }
+
+div.dbv_label{
+	width: 100%;
+	text-align: center;
+	font-family: 'Roboto Condensed';
+	font-style: normal;
+	font-weight: 300;
+	font-size: .8em;
+}
