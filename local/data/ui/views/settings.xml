@@ -1,0 +1,120 @@
+<dashboard script="token-via-links.js">
+  <init>
+    <set token="default-thresholds">default-thresholds</set>
+  </init>
+  <label>Settings</label>
+  <description>How to use settings to customize the visualization.</description>
+  <row>
+    <panel>
+      <html>
+        <style>
+          .button, .button:hover {
+    background-color: white;
+    border: 2px solid #5C8EB1!important;
+    color: #5C8EB1;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    }
+    
+    .on, .on:hover{
+    background-color: #5C8EB1!important; /* Green */
+    color: white!important;
+    font-weight:bold;
+    border: 2px solid #5C8EB1!important; /* Green */
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    }
+    
+    
+    </style>
+    <body>
+      <h4>Settings</h4>
+
+<button class="button on" data-on-class="on" data-off-class="button" data-set-token="options" data-unset-token="format,themes,tokens" data-value="options">Options</button>
+<button class="button" data-on-class="on" data-off-class="button" data-set-token="format" data-unset-token="options,themes,tokens" data-value="format">Format</button>
+<button class="button" data-on-class="on" data-off-class="button" data-set-token="themes" data-unset-token="options,format,tokens" data-value="themes">Themes</button>
+<button class="button" data-on-class="on" data-off-class="button" data-set-token="tokens" data-unset-token="options,format,themes" data-value="tokens">Tokens</button>
+    </body>
+    </html>
+    </panel>
+  </row>
+  <row>
+    <panel depends="$options$">
+      <html>
+      <table cellpadding="10">
+        <tr>
+            <td>
+              <img src="/static/app/performance-analysis/images/about-default-thresholds.png"/>
+            </td>
+            <td valign="top">The default thresholds will be used for all rows if you don't specify any thresholds in your search query.<br/>
+            This value controls the background color of the cells, where green indicates that the value is normal, yellow indicates a warning, and red indicates a critical state.<br/>
+            You can set these valuse in the search query by using an <code>eval</code> statement:<br/>
+            <code>...| eval warning_threshold = case(name=="windows_server", 60,name=="unix_server", 65, 1==1, 70)<br/>
+            | eval critical_threshold = case(name=="windows_server", 80,name=="unix_server", 85, 1==1, 90)</code>
+            </td>
+          </tr>
+          </table>
+        </html>
+    </panel>
+    <panel depends="$format$">
+      <html>  <table cellpadding="10">
+      <tr>
+            <td>
+              <img src="/static/app/performance-analysis/images/about-options.png"/>
+            </td>
+            <td valign="top">
+              
+              <p><h2>Fixed size or Auto</h2><br />This setting determines the number of characters to display. <br />
+              <strong>Fixed Size</strong> will limit the length to a value you provide. If you try to display a longer word, it will be cut off, whereas shorter words will show blank panels.<br /> 
+              <strong>Auto Length</strong> will automatically fit the longest term (up to a maximun of 50 characters).<br /></p>
+              
+              <p><h2>Fixed Size</h2><br />If you choose Fixed Size above, this value will be used to determine the length within the range of 1 to 50.<br /></p>
+              
+              <p><h2>Refresh</h2><br />This setting determines if the Departures Board will cycle through values, or just update once.<br />
+              <strong>True</strong> - cycle through all values returned from your search. If your search only returns one value it will still update.<br />
+              <strong>False</strong> - Only the first result from your search will be displayed. The animation will only run once.</p>
+              
+              <p><h2>Refresh every X seconds</h2><br />If you chose to refresh, this setting determines how often the update will occur, in seconds. </p>
+            </td>
+          </tr>
+          </table>
+      </html>
+    </panel>
+    <panel depends="$themes$">
+      <html>  <table cellpadding="10">
+      <tr>
+            <td>
+              <img src="/static/app/performance-analysis/images/about-colours.png"/>
+            </td>
+            <td valign="top">
+              <b>Colours</b> allows you to choose the colour scheme for the values (cell background colours).</td>
+          </tr>
+          </table>
+      </html>
+    </panel>
+    <panel depends="$tokens$">
+      <html>  <table cellpadding="10">
+      <tr>
+            <td>
+              <img src="/static/app/performance-analysis/images/about-downtime-range.png"/>
+            </td>
+            <td valign="top">
+              <b>Downtime Range</b> lets you indicate when there is regular scheduled downtime for your environment. Use 24 hour format: 0 = Midnight, 12 = Midday, 22 = 10 PM.<br/>
+            Downtime is indicated by showing a grayed out cell. You can still see the value and status, however the downtime indication lets you know that downtime was in effect.
+            </td>
+          </tr>
+          </table>
+            
+            </html>
+    </panel>
+   
+  </row>
+</dashboard>

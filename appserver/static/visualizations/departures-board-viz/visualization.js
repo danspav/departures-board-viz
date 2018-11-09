@@ -152,17 +152,19 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 				
 				// Now load the visualisation
 				var oDepartures_board = new departures_board();
-				oDepartures_board.setConfig(config, this.getPropertyNamespaceInfo().propertyNamespace);
+				oDepartures_board.setConfig(config, this.getPropertyNamespaceInfo().propertyNamespace, mvc);
 				oDepartures_board.setText(data)
-				var id=oDepartures_board.id;
+		//		var id=oDepartures_board.id;
 				this.$el.html(oDepartures_board.getHTML());
-				var caption = oDepartures_board.getNextWord();
-				window.jQuery("#" + id).flapper(oDepartures_board.getOpts());
-				$("#" + id).val(caption).change();
-				var vizObj = this;	
-				var tokens={"term": {"key": token_word, "value": oDepartures_board.caption},"id": {"key": token_id, "value":oDepartures_board.value}}
-				vizObj.setTokens(tokens);
+				//var caption = oDepartures_board.getNextWord();
+				//window.jQuery("#" + id).flapper(oDepartures_board.getOpts());
+				//$("#" + id).val(caption).change();
+		//		var vizObj = this;	
+		//		var tokens={"term": {"key": token_word, "value": oDepartures_board.caption},"id": {"key": token_id, "value":oDepartures_board.value}}
+		//		vizObj.setTokens(tokens);
 						
+				oDepartures_board.go();
+				/*
 				if(oDepartures_board.auto_refresh){
 					setInterval(function(){
 							if(oDepartures_board.words.length == 1) {
@@ -175,7 +177,7 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 							vizObj.setTokens(tokens);
 					}, oDepartures_board.auto_refresh_period * 1000);
 				}
-				
+				*/
 				
 			}
 		});
@@ -2239,12 +2241,12 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 			this.token_id = "dbv_id";
 			this.is_fixed_length = false;
 			this.align = "left";
-			
+			this.mvc = "";
 		}
 		
 		
 		
-		setConfig(config, namespace){
+		setConfig(config, namespace, mvc){
 			// Get Config parameters:
 				this.num_characters = parseInt(config[namespace + 'num_characters']) || 5;
 				if (this.num_characters > this.max_num_characters) { this.num_characters = this.max_num_characters;}
@@ -2255,7 +2257,7 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 				this.theme = config[namespace + "theme"] || "light";
 				this.force_all_caps = config[namespace + "force_all_caps"] || true;
 				
-				this.token_word = config[namespace + "token_name"] || "dbv_term";
+				this.token_word = config[namespace + "token_term"] || "dbv_term";
 				this.token_id = config[namespace + "token_id"] || "dbv_id";
 				this.caption="";
 				this.is_fixed_length = config[namespace + "is_fixed_length"] || false;
@@ -2272,7 +2274,7 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 				this.timing = parseInt(this.timing,10);
 				if(this.timing<1) { this.timing = 1;}
 				
-				
+				this.mvc = mvc
 				
 				//Refresh period cannot be less than 1s
 				var reValidateRefreshPeriod = new RegExp("\\d{1,3}(\\.\\d+)?");
@@ -2280,7 +2282,7 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 				
 				//Timing mus be at least 100ms
 				var reValidateAnimationPeriod = new RegExp("\\d{3,4}");
-				if( reValidateAnimationPeriod.test(this.timing)!=true || this.timing <100){ this.auto_refresh_period = 500;}
+				if( reValidateAnimationPeriod.test(this.timing)!=true || this.timing <100){ this.timing = 500;}
 		}
 		
 		
@@ -2372,30 +2374,42 @@ define(["api/SplunkVisualizationUtils","splunkjs/mvc","api/SplunkVisualizationBa
 		}
 		
 		
-		// Kick off the animation
-		start(){
-			//const flap = require('flapper');
-			var caption = this.caption;
-			var id = this.id;
-			var auto_refresh_period = this.auto_refresh_period;
-			window.jQuery("#" + this.id).val(caption)
-			window.jQuery("#" + this.id).flapper({
-				width: this.size,
-				chars_preset: 'alphanum',
-				transform: this.is_animated,
-				timing: this.timing
-			});
-			if(this.auto_refresh) {
-				setTimeout(function(){
-					setInterval(function(){
-						window.jQuery("#" + this.id).val('').change();						
-						setTimeout(function(){window.jQuery("#" + this.id).val(caption).change();},1000);
-					}, auto_refresh_period * 1000);
-				}, 1000);
-			} // End if
-		}
 			
+			go(){
+				window.jQuery("#" + this.id).flapper(this.getOpts());
+				$("#" + this.id).val(this.getNextWord()).change();
+				this.setTokens();
+				var thisObj = this;	
+						
+				if(this.auto_refresh){
+					window.setInterval(function(){
+							if(thisObj.words.length == 1) {
+								$("#" + thisObj.id).val('').change();	
+							}
+							$("#" + thisObj.id).val(thisObj.getNextWord()).change();
+							thisObj.setTokens();
+					}, this.auto_refresh_period * 1000);
+				}
+				
+				
+			}
 		
+		
+			setTokens(){
+				this._setToken(this.token_word,this.caption);
+				this._setToken(this.token_id,this.value);
+			}
+			
+			_setToken(name, value) {
+				var defaultTokenModel = this.mvc.Components.get('default');
+				if (defaultTokenModel) {
+					defaultTokenModel.set(name, value);
+				}
+				var submittedTokenModel = this.mvc.Components.get('submitted');
+				if (submittedTokenModel) {
+					submittedTokenModel.set(name, value);
+				}
+			}
 		
 	}
 
