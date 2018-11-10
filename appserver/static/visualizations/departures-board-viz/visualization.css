@@ -342,17 +342,31 @@
 }
 
 /* splunk specific */
+
 div.departures_board{
-	padding: 15px;
+	max-width:-webkit-fill-available;
+	overflow-x: auto;
+	padding: 15px 30px 0px 15px;
+	width:auto!important;
+	border: 1ps solid green;
 }
 
 div.dbv_label{
-	width: 100%;
 	text-align: center;
-	font-family: 'Roboto Condensed';
-	font-style: normal;
-	font-weight: 300;
-	font-size: .8em;
+	letter-spacing: normal;
+	font-size: 12px;
+	font-weight: normal;
+	fill: rgb(60, 68, 77);
+	opacity: 1;
 }
+
 div.dbv_container{
+
+}
+
+dvb_sub_container{
+	max-width:auto;
+	display:inline-block;
+	overflow-x: auto;
+	text-align:center;
 }
