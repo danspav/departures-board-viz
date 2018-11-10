@@ -5,7 +5,8 @@ define([
 		'api/SplunkVisualizationUtils',
 		'splunkjs/mvc',
 		'departures-board',
-		'flapper'
+		'flapper',
+		'transform'
 	],
 	function (
 		$,
@@ -14,7 +15,8 @@ define([
 		SplunkVisualizationUtils,
 		mvc,
 		departuresBoard,
-		flapper) {
+		flapper,
+		transformer) {
 
 	return SplunkVisualizationBase.extend({
 
