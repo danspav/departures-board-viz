@@ -1,6 +1,5 @@
 <dashboard>
   <label>Example #2 - Tokens</label>
-  <description>Showing Server and Application performance</description>
   <row>
     <panel>
       <html>
