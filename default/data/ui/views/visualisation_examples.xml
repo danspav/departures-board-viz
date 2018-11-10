@@ -33,6 +33,7 @@
         <option name="departures-board-viz.departures-board-viz.is_fixed_length">false</option>
         <option name="departures-board-viz.departures-board-viz.num_characters">5</option>
         <option name="departures-board-viz.departures-board-viz.size">L</option>
+        <option name="departures-board-viz.departures-board-viz.text_align">left</option>
         <option name="departures-board-viz.departures-board-viz.theme">dark</option>
         <option name="departures-board-viz.departures-board-viz.timing">500</option>
         <option name="departures-board-viz.departures-board-viz.token_id">country</option>
@@ -85,22 +86,23 @@
   </row>
   <row>
     <panel>
-      <title>Cities of the World</title>
+      <title>Population of $city$</title>
       <viz type="departures-board-viz.departures-board-viz">
         <search>
-          <query>| inputlookup departures-board-viz-countries-lookup.csv | eval rand=random()| sort rand | table city, id</query>
+          <query>| inputlookup departures-board-viz-countries-lookup.csv where city=$city|s$ AND country=$country|s$ | eval population=tostring(population, "commas") | table population, id</query>
           <earliest>-4h@m</earliest>
           <latest>now</latest>
           <sampleRatio>1</sampleRatio>
         </search>
         <option name="departures-board-viz.departures-board-viz.align">left</option>
-        <option name="departures-board-viz.departures-board-viz.auto_refresh">true</option>
+        <option name="departures-board-viz.departures-board-viz.auto_refresh">false</option>
         <option name="departures-board-viz.departures-board-viz.auto_refresh_period">10</option>
         <option name="departures-board-viz.departures-board-viz.dark_tiles">false</option>
         <option name="departures-board-viz.departures-board-viz.force_all_caps">true</option>
         <option name="departures-board-viz.departures-board-viz.is_fixed_length">false</option>
         <option name="departures-board-viz.departures-board-viz.num_characters">5</option>
         <option name="departures-board-viz.departures-board-viz.size">L</option>
+        <option name="departures-board-viz.departures-board-viz.text_align">left</option>
         <option name="departures-board-viz.departures-board-viz.theme">dark</option>
         <option name="departures-board-viz.departures-board-viz.timing">500</option>
         <option name="departures-board-viz.departures-board-viz.token_id">dbv_id</option>
@@ -114,10 +116,10 @@
       </viz>
     </panel>
     <panel>
-      <title>Details of $dbv_term$</title>
+      <title>Details of $city$</title>
       <table>
         <search>
-          <query>| inputlookup departures-board-viz-countries-lookup.csv where id=$dbv_id$  |  rename city as City, country as Country, population as Population | table City, Country, Population | fieldformat Population=tostring(Population, "commas")</query>
+          <query>| inputlookup departures-board-viz-countries-lookup.csv where id=$dbv_id$|  rename city as City, country as Country, population as Population | table City, Country, Population | fieldformat Population=tostring(Population, "commas")</query>
           <earliest>1541449920.000</earliest>
           <latest>1541464324.000</latest>
           <sampleRatio>1</sampleRatio>

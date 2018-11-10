@@ -1,6 +1,6 @@
 <dashboard script="token-via-links.js">
   <init>
-    <set token="default-thresholds">default-thresholds</set>
+    <set token="options">options</set>
   </init>
   <label>Settings</label>
   <description>How to use settings to customize the visualization.</description>
@@ -86,7 +86,7 @@
             </td>
             <td valign="top">
               
-              <p><h2>Align Visualization</h2>This setting determines the alignment of the visualization wihtin the dashboard panel. <br />
+              <p><h2>Align Visualization</h2>This setting determines the alignment of the visualization within the dashboard panel. <br />
               <strong>Left</strong> will align the visualization on the left. This is the default setting.<br /> 
               <strong>Center</strong> will align the visualization in the middle.<br />
               <strong>Right</strong>  will align the visualization on the right.<br /></p>
@@ -98,7 +98,7 @@
               <br />
               <p><h2>Change Case</h2>This setting changes the results to be all-caps<br />
               <strong>All Caps</strong> makes each result display in all caps. Equivalent to: <code>...| eval message = upper(message) </code><br /> 
-              <strong>None</strong> displays the results as-is.<br /></p>
+              <strong>No Change</strong> displays the results as-is.<br /></p>
               <br />
               <p><h2>Text Size</h2>This setting changes the size of the lettering<br />
               The options are: Small, Medium, Large, Extra Large, Extra-Extra Large. To view the different sizes, see the <a href="example_1__styles">Example #1 - Styles</a> dashboard.</p>
