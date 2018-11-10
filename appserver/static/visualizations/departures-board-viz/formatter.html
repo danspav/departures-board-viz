@@ -3,7 +3,7 @@
 <form class="splunk-formatter-section" section-label="Options">
    <!-- Fixed Size or Auto -->
 	<splunk-control-group label="Fixed size or Auto">
-		<splunk-radio-input name="{{VIZ_NAMESPACE}}.is_fixed_length" value="true">
+		<splunk-radio-input name="{{VIZ_NAMESPACE}}.is_fixed_length" value="false">
 			<option value="true">Fixed Size</option>
 			<option value="false">Auto Length</option>
 		</splunk-radio-input>
@@ -11,7 +11,7 @@
 	
 	<!-- Fixed Size -->
 	<splunk-control-group label="Fixed Size">
-        <splunk-text-input name="{{VIZ_NAMESPACE}}.num_characters" value="5"></splunk-text-input>
+        <splunk-text-input name="{{VIZ_NAMESPACE}}.num_characters" value="10"></splunk-text-input>
     </splunk-control-group>
 	
 	<splunk-control-group label=" ">
@@ -78,7 +78,7 @@
 	
 	<!-- Text Size -->
 	<splunk-control-group label="Text Size">
-        <splunk-select name="{{VIZ_NAMESPACE}}.size" value="true">
+        <splunk-select name="{{VIZ_NAMESPACE}}.size" value="XL">
 			<option value="S">Small</option>
 			<option value="M">Medium</option>
 			<option value="L">Large</option>
@@ -98,7 +98,7 @@
 <form class="splunk-formatter-section" section-label="Themes">
 	<!-- Themes -->
 	<splunk-control-group label="Theme">
-		<splunk-radio-input name="{{VIZ_NAMESPACE}}.theme" value="light" section-label="Theme">
+		<splunk-radio-input name="{{VIZ_NAMESPACE}}.theme" value="dark" section-label="Theme">
 			<option value="dark">Dark Theme</option>
 			<option value="light">Light Theme</option>
 		</splunk-radio-input>

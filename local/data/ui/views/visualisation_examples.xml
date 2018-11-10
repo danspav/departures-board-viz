@@ -7,6 +7,8 @@
         <style>
           div.html h1, div.html p{color:#333333!important;}
           div.html{ background-color: #d1d1d1; border-radius:15px 15px 0px 0px;}
+          div.panel-element-row,div.dashboard-panel{border-radius: 15px 15px 0px 0px;}
+          
         </style>
         <h1>Using a token from one Departures Board to drive a second</h1>
         <p>The departures board visualization on the left generates a "<i>country</i>" token, which is used to display the right hand visualization.</p>
@@ -36,7 +38,7 @@
         <option name="departures-board-viz.departures-board-viz.token_id">country</option>
         <option name="departures-board-viz.departures-board-viz.token_term">city</option>
         <option name="drilldown">none</option>
-        <option name="height">174</option>
+        <option name="height">118</option>
         <option name="refresh.display">progressbar</option>
         <option name="trellis.enabled">0</option>
         <option name="trellis.scales.shared">1</option>
@@ -65,7 +67,7 @@
         <option name="departures-board-viz.departures-board-viz.token_id">dbvasfdasd_id</option>
         <option name="departures-board-viz.departures-board-viz.token_term">dbvasdfasdf_term</option>
         <option name="drilldown">none</option>
-        <option name="height">188</option>
+        <option name="height">110</option>
         <option name="refresh.display">progressbar</option>
         <option name="trellis.enabled">0</option>
         <option name="trellis.scales.shared">1</option>
