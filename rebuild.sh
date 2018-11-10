@@ -1,4 +1,12 @@
+#!/bin/bash
 export SPLUNK_HOME=/opt/splunk
+
+ bump=`cat $SPLUNK_HOME/var/run/splunk/push-version.txt`
+ echo "Current version: $bump"
+ let bump++
+ echo -n $bump > $SPLUNK_HOME/var/run/splunk/push-version.txt
+ echo "New version:  $bump"
+
 cd /opt/git/departures-board-viz
 git pull
 cd /opt/git/departures-board-viz/appserver/static/visualizations/departures-board-viz

@@ -24,7 +24,7 @@
     background-color: #5C8EB1!important; /* Green */
     color: white!important;
     font-weight:bold;
-    border: 2px solid #4CAF50!important; /* Green */
+    border: 2px solid #5C8EB1!important; /* Green */
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -38,18 +38,16 @@
     <body>
       <h4>Settings</h4>
 
-<button class="button on" data-on-class="on" data-off-class="button" data-set-token="default-thresholds" data-unset-token="options,colours,downtime-range,time-format" data-value="default-thresholds">Default Thresholds</button>
-<button class="button" data-on-class="on" data-off-class="button" data-set-token="options" data-unset-token="default-thresholds,colours,downtime-range,time-format" data-value="options">Options</button>
-<button class="button" data-on-class="on" data-off-class="button" data-set-token="colours" data-unset-token="options,default-thresholds,downtime-range,time-format" data-value="colours">Colours</button>
-<button class="button" data-on-class="on" data-off-class="button" data-set-token="downtime-range" data-unset-token="options,colours,default-thresholds,time-format" data-value="downtime-range">Downtime Range</button>
-<button class="button" data-on-class="on" data-off-class="button" data-set-token="time-format" data-unset-token="options,colours,downtime-range,default-thresholds" data-value="time-format">Time Format</button>
-
+<button class="button on" data-on-class="on" data-off-class="button" data-set-token="options" data-unset-token="format,themes,tokens" data-value="options">Options</button>
+<button class="button" data-on-class="on" data-off-class="button" data-set-token="format" data-unset-token="options,themes,tokens" data-value="format">Format</button>
+<button class="button" data-on-class="on" data-off-class="button" data-set-token="themes" data-unset-token="options,format,tokens" data-value="themes">Themes</button>
+<button class="button" data-on-class="on" data-off-class="button" data-set-token="tokens" data-unset-token="options,format,themes" data-value="tokens">Tokens</button>
     </body>
     </html>
     </panel>
   </row>
   <row>
-    <panel depends="$default-thresholds$">
+    <panel depends="$options$">
       <html>
       <table cellpadding="10">
         <tr>
@@ -66,31 +64,31 @@
           </table>
         </html>
     </panel>
-    <panel depends="$options$">
+    <panel depends="$format$">
       <html>  <table cellpadding="10">
       <tr>
             <td>
               <img src="/static/app/performance-analysis/images/about-options.png"/>
             </td>
             <td valign="top">
-              <p><b>Granularity</b> sets the duration of each cell, in minutes. <br/> 5 = 5 minute intervals.<br/>30 = half-hour intervals.<br/>60 = 1 hour intervals.</p><br/>
               
-            <p><b>Show Legend</b> turns the legend on and off. When set to 'show' the visualization will have a legend at the bottom left.</p>
+              <p><h2>Fixed size or Auto</h2><br />This setting determines the number of characters to display. <br />
+              <strong>Fixed Size</strong> will limit the length to a value you provide. If you try to display a longer word, it will be cut off, whereas shorter words will show blank panels.<br /> 
+              <strong>Auto Length</strong> will automatically fit the longest term (up to a maximun of 50 characters).<br /></p>
               
-            <p><b>Status Format</b> determines what sort of decoration goes in the middle of the cells. Select 'Text' for textual values (GREEN / AMBER / RED) and 'Numerical' to show a number instead.</p>
-            <p>For the Text option, the following strings can be used for the status field:</p>
-            <table width="260" cellpadding="2" cellspacing="0" border="1" style="border: 1px solid #cccccc; border-collapse:collapse;">
-              <tr><td align="center"><strong>Icon</strong></td><td align="center"><strong>Status</strong></td></tr>
-              <tr><td align="center"><img src="/static/app/performance-analysis/images/green.png" alt="Green" /></td><td align="center">green<br />ok<br />pass<br />low</td></tr>
-              <tr><td align="center"><img src="/static/app/performance-analysis/images/amber.png" alt="Amber" /></td><td align="center">amber<br />warn<br />warning<br />caution</td></tr>
-              <tr><td align="center"><img src="/static/app/performance-analysis/images/red.png" alt="Red" /></td><td align="center">red<br />critical<br />severe<br />fail</td></tr>
-            </table>
+              <p><h2>Fixed Size</h2><br />If you choose Fixed Size above, this value will be used to determine the length within the range of 1 to 50.<br /></p>
+              
+              <p><h2>Refresh</h2><br />This setting determines if the Departures Board will cycle through values, or just update once.<br />
+              <strong>True</strong> - cycle through all values returned from your search. If your search only returns one value it will still update.<br />
+              <strong>False</strong> - Only the first result from your search will be displayed. The animation will only run once.</p>
+              
+              <p><h2>Refresh every X seconds</h2><br />If you chose to refresh, this setting determines how often the update will occur, in seconds. </p>
             </td>
           </tr>
           </table>
       </html>
     </panel>
-    <panel depends="$colours$">
+    <panel depends="$themes$">
       <html>  <table cellpadding="10">
       <tr>
             <td>
@@ -102,7 +100,7 @@
           </table>
       </html>
     </panel>
-    <panel depends="$downtime-range$">
+    <panel depends="$tokens$">
       <html>  <table cellpadding="10">
       <tr>
             <td>
@@ -117,19 +115,6 @@
             
             </html>
     </panel>
-    <panel depends="$time-format$">
-      <html>  
-          <table cellpadding="10">
-      <tr>
-            <td>
-              <img src="/static/app/performance-analysis/images/about-time-format.png"/>
-            </td>
-            <td valign="top">
-              <b>Time Format</b> lets you choose how the times are displayed at the top of the visualization. </td>
-          </tr>
-      </table>
-      
-            </html>
-    </panel>
+   
   </row>
 </dashboard>
