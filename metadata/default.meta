@@ -1,5 +1,4 @@
 ### Visualizations
 
-# Un-comment the stanza below to make the standin visualization available to all apps.
 [visualizations/departures-board-viz]
 export = system
