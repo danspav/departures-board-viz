@@ -79,6 +79,7 @@ define([
 			this.$el.empty();
 
 			var departures_board = require('departures-board');
+			departures_board = departures_board.departures_board;
 			var flapper = require('flapper');
 			
 			// Now load the visualisation

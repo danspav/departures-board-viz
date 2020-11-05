@@ -13,3 +13,5 @@ default.visualizations.custom.departures-board-viz.departures-board-viz.label= <
 
 default.visualizations.custom.departures-board-viz.departures-board-viz.token_term = <string>
 default.visualizations.custom.departures-board-viz.departures-board-viz.token_id = <string>
+
+default.visualizations.custom.departures-board-viz.departures-board-viz.customColor = <string>

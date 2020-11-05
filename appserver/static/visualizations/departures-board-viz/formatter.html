@@ -101,8 +101,21 @@
 		<splunk-radio-input name="{{VIZ_NAMESPACE}}.theme" value="dark" section-label="Theme">
 			<option value="dark">Dark Theme</option>
 			<option value="light">Light Theme</option>
+			<option value="custom">Custom Theme</option>
 		</splunk-radio-input>
 	</splunk-control-group>
+	
+	
+		<splunk-control-group label="Custom Theme Color" help=" ">
+		<splunk-color-picker type="splunkSemantic" name="{{VIZ_NAMESPACE}}.customColor" value="#FFE98A">
+		<splunk-color>#FFE98A</splunk-color>
+		<splunk-color>#4ef2c1</splunk-color>
+		<splunk-color>#dff1f7</splunk-color>
+		<splunk-color>#aef6d6</splunk-color>
+		<splunk-color>#106d6a</splunk-color>
+		</splunk-color-picker>
+	</splunk-control-group>
+	
 </form>
 
 
