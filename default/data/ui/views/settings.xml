@@ -122,12 +122,19 @@
             </td>
             <td valign="top">
               
-              <p><h2>Theme</h2>Choose between two different themes.<br />
-              The options are: light theme, dark theme
+              <p><h2>Theme</h2>Choose between three different themes.<br />
+              The options are: light theme, dark theme, custom
               <br />
               To view the different themes side-by-side, see the <a href="example_1__styles">Example #1 - Styles</a> dashboard.</p>
               <br />
-              
+              To use a custom color, choose the custom theme.<br/>
+			  
+			
+			<p><h2>Color</h2>
+			The panels that flip through the visualization are image based, so the selected color will be achieved via CSS styles. For that reason, the text is sometimes not as easily read with some colors. <br/>
+			Text is not customizable, as it is part of the panel image. If the text is not legible with the color selected, choose a different color.
+			</p>
+
             </td>
           </tr>
           </table>
