@@ -125,10 +125,10 @@
               <p><h2>Theme</h2>Choose between three different themes.<br />
               The options are: light theme, dark theme, custom
               <br />
-              To view the different themes side-by-side, see the <a href="example_1__styles">Example #1 - Styles</a> dashboard.</p>
+              To view the different themes side-by-side, see the <a href="example_1__styles">Example #1 - Styles</a> dashboard.
               <br />
-              To use a custom color, choose the custom theme.<br/>
-			  
+              To use a custom color, choose the custom theme.</p>
+			  <br/>
 			
 			<p><h2>Color</h2>
 			The panels that flip through the visualization are image based, so the selected color will be achieved via CSS styles. For that reason, the text is sometimes not as easily read with some colors. <br/>
