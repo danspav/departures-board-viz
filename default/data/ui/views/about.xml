@@ -5,7 +5,7 @@
     <panel>
       <html>
       <h2>Departures Board Visualization</h2>
-      <h4>Version: 1.0</h4>
+      <h4>Version: 1.1.0</h4>
       <h4>Created by Daniel Spavin (<a href="mailto:daniel@spavin.org">daniel@spavin.org</a>)</h4>
         </html>
     </panel>
@@ -50,7 +50,7 @@
     
     
 <h1>Version Support</h1>
-<p>7.2, 7.1, 7.0, 6.6, 6.5, 6.4, 6.3, 6.2, 6.1, 6.0</p>
+<p>8.1, 8.0, 7.2, 7.1, 7.0</p>
 
 
 <h1>Who is this app for?</h1>
@@ -104,6 +104,18 @@
 </ul>
 
 <h1># Release Notes #</h1>
+<h2>v 1.1.0</h2>
+<ul>
+  <li>You can now display the Departures Board Visualization in any color. See options: Theme > Custom</li>
+</ul>
+
+
+<h2>v 1.0.1</h2>
+<ul>
+  <li>Minor changes to pass Cloud vetting</li>
+</ul>
+
+
 <h2>v 1.0.0</h2>
 <ul>
   <li>Initial version</li>

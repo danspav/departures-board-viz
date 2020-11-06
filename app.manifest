@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "2.0.0", 
+  "info": {
+    "title": "Departures Board Viz", 
+    "id": {
+      "group": null, 
+      "name": "departures-board-viz", 
+      "version": "1.1.0"
+    }, 
+    "author": [
+      {
+        "name": "Daniel Spavin", 
+        "email": "daniel@spavin.net",
+        "company": null
+      }
+    ],
+    "releaseDate": null,
+    "description": "The Departures Board Viz is a single value animated visualization in the style of airport departure boards.", 
+    "classification": {
+      "intendedAudience": "IT",
+      "categories": ["IT Operations"],
+      "developmentStatus": "Production/Stable"
+    }, 
+    "commonInformationModels": null, 
+    "license": {
+      "name": "GPLv2",
+      "text": null,
+      "uri": "https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt"
+    },
+	"privacyPolicy": {
+      "name": null, 
+      "text": null, 
+      "uri": null
+    }, 	
+    "releaseNotes": {
+      "name": "README", 
+      "text": "./README.txt",
+      "uri": null
+    }
+  }, 
+  "dependencies": null,
+  
+  "tasks": null,
+  "inputGroups": null, 
+  "incompatibleApps": null, 
+  "platformRequirements": null, 
+  "supportedDeployments": ["_standalone", "_distributed", "_search_head_clustering"],
+  "targetWorkloads": ["_search_heads"]
+}
