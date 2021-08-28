@@ -106,7 +106,7 @@
 <h1># Release Notes #</h1>
 <h2>v 1.2.0</h2>
 <ul>
-  <li>You can now display the Departures Board Visualization in any color. See options: Theme > Custom</li>
+  <li>Updated to JQuery 3.5.0, other minor changes to meet Splunk Cloud requirements</li>
 </ul>
 
 <h2>v 1.1.0</h2>
