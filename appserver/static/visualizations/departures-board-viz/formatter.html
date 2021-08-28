@@ -1,7 +1,4 @@
-
-<!-- ---------------------  Options Form ---------------------------->
 <form class="splunk-formatter-section" section-label="Options">
-   <!-- Fixed Size or Auto -->
 	<splunk-control-group label="Fixed size or Auto">
 		<splunk-radio-input name="{{VIZ_NAMESPACE}}.is_fixed_length" value="false">
 			<option value="true">Fixed Size</option>
@@ -9,7 +6,6 @@
 		</splunk-radio-input>
 	</splunk-control-group>
 	
-	<!-- Fixed Size -->
 	<splunk-control-group label="Fixed Size">
         <splunk-text-input name="{{VIZ_NAMESPACE}}.num_characters" value="10"></splunk-text-input>
     </splunk-control-group>
@@ -18,7 +14,6 @@
 	<p>Note the maximum size is 50 characters.</p>
 	</splunk-control-group>
 	
-	 <!-- Auto Refresh -->
 	 <splunk-control-group label="Refresh">
 		<splunk-radio-input name="{{VIZ_NAMESPACE}}.auto_refresh" value="true">
 			<option value="true">True</option>
@@ -26,12 +21,10 @@
 		</splunk-radio-input>
 	</splunk-control-group>
 	
-	<!-- Refresh every X seconds -->
 	<splunk-control-group label="Refresh every X seconds">
     	<splunk-text-input name="{{VIZ_NAMESPACE}}.auto_refresh_period" value="5"></splunk-text-input>
 	</splunk-control-group>
 	
-	<!-- Animation Time -->
 	<splunk-control-group label="Animation Duration">
 		<splunk-select name="{{VIZ_NAMESPACE}}.timing" value="500">
 			<option value="1000">Very Slow</option>
@@ -50,7 +43,6 @@
 <!-- ---------------------  Format Form ---------------------------->
 <form class="splunk-formatter-section" section-label="Format">
 
-	<!-- Align -->
 	<splunk-control-group label="Align Visualization">
 		<splunk-radio-input name="{{VIZ_NAMESPACE}}.align" value="left">
 			<option value="left">Left</option>
@@ -59,7 +51,6 @@
 		</splunk-radio-input>
 	</splunk-control-group>
 	
-	<!-- Align -->
 	<splunk-control-group label="Align Text">
 		<splunk-radio-input name="{{VIZ_NAMESPACE}}.text_align" value="left">
 			<option value="left">Left</option>
@@ -68,7 +59,6 @@
 		</splunk-radio-input>
 	</splunk-control-group>
 	
-	<!-- Change Case -->
 	 <splunk-control-group label="Change Case">
 		<splunk-radio-input name="{{VIZ_NAMESPACE}}.force_all_caps" value="true">
 			<option value="true">ALL CAPS</option>
@@ -76,7 +66,6 @@
 		</splunk-radio-input>
 	</splunk-control-group>
 	
-	<!-- Text Size -->
 	<splunk-control-group label="Text Size">
         <splunk-select name="{{VIZ_NAMESPACE}}.size" value="XL">
 			<option value="S">Small</option>
@@ -87,16 +76,13 @@
 		</splunk-select>
 	</splunk-control-group>
 
-	<!-- Caption -->
 	<splunk-control-group label="Caption">
         <splunk-text-input name="{{VIZ_NAMESPACE}}.label" value=""></splunk-text-input>
     </splunk-control-group>
 	</form>
 
 
-<!-- ---------------------  Themes Form ---------------------------->
 <form class="splunk-formatter-section" section-label="Themes">
-	<!-- Themes -->
 	<splunk-control-group label="Theme">
 		<splunk-select name="{{VIZ_NAMESPACE}}.theme" value="dark" section-label="Theme">
 			<option value="dark">Dark Theme</option>
@@ -120,14 +106,11 @@
 </form>
 
 
-<!-- ---------------------  Tokens Form ---------------------------->
 <form class="splunk-formatter-section" section-label="Tokens" help="Tokens for current term, and optional ID field.">
-	<!-- Term Token -->
 	<splunk-control-group label="Term Token">
 		<splunk-text-input name="{{VIZ_NAMESPACE}}.token_term" value="dbv_term"></splunk-text-input>
 	</splunk-control-group>
 	
-	<!-- ID Token -->
 	<splunk-control-group label="ID Token">
         <splunk-text-input name="{{VIZ_NAMESPACE}}.token_id" value="dbv_id"></splunk-text-input>
 	</splunk-control-group>
