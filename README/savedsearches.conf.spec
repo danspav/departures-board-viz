@@ -1,4 +1,4 @@
-[default]
+[<stanza name>]
 default.visualizations.custom.departures-board-viz.departures-board-viz.num_characters = <number>
 default.visualizations.custom.departures-board-viz.departures-board-viz.timing = <number>
 default.visualizations.custom.departures-board-viz.departures-board-viz.auto_refresh = <bool>
