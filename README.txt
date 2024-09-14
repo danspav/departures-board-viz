@@ -2,7 +2,7 @@ Daniel Spavin
 daniel@spavin.net
 
 # Version Support #
-7.2, 7.1, 7.0, 6.6, 6.5, 6.4, 6.3, 6.2, 6.1, 6.0
+9.3, 9.2, 9.1, 9.0, 8.2, 8.1, 8.0, 7.x
 
 # What does the app do? #
 The Departures Board Viz is a single value animated visualization in the style of airport departure boards. Drop it into your own dashboards to display places, users, timestamps or any other important information in an eye catching and fun way

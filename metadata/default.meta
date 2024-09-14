@@ -1,4 +1,6 @@
 ### Visualizations
+[]
+access = read : [ * ], write : [ sc_admin, admin, power ]
 
 [visualizations/departures-board-viz]
 export = system
